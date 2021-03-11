@@ -8,10 +8,9 @@ var data_dir = task_name;
 //my preference is to include the task and sbj_id in the file name
 var file_name = task_name + '_' + sbj_id; 
 
-var repo_site = "https://zz112duke.github.io/At_Lr_Qualtrics/";
+var repo_site = "https://zz112duke.github.io/Gem_learning/";
 
 //Functions
-
 
 var timeline = [];
 
@@ -56,7 +55,7 @@ var iti_1000 = {
   stimulus: repo_site + "img/Stim/fixation.png",
   choices: jsPsych.NO_KEYS,
   response_ends_trial: false,
-  trial_duration: 1000,  //jitter this!!! from 1000-1500ms
+  trial_duration: Math.random() * (1500 - 1000) + 1000  //jittered from 1000-1500ms
 }
 
 
@@ -121,7 +120,7 @@ var lr_stimuli_TS1 = [//TS1 based on color; warm left cold right
     { lr_stimulus: repo_site + "img/Stim/TS133.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS1', Scene: 'road', correct_response: 'ArrowRight'}},
 ];
 var lr_stimuli_TS2 = [//TS2 based on shape; round up square down
-    { lr_stimulus: repo_site + "img/Stim/TS200.png", data: { test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS2', Scene: 'mountain', correct_response: 'ArrowUp'}},
+    { lr_stimulus: repo_site + "img/Stim/TS200.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS2', Scene: 'mountain', correct_response: 'ArrowUp'}},
     { lr_stimulus: repo_site + "img/Stim/TS201.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS2', Scene: 'mountain', correct_response: 'ArrowUp'}},
     { lr_stimulus: repo_site + "img/Stim/TS202.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS2', Scene: 'mountain', correct_response: 'ArrowDown'}},
     { lr_stimulus: repo_site + "img/Stim/TS203.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS2', Scene: 'mountain', correct_response: 'ArrowDown'}},
@@ -160,17 +159,14 @@ var learning = {
 }
 
 
-var lr_task_list = [lr_test_TS1, lr_test_TS2];
-var lr_task = lr_task_list[Math.floor((Math.random()) * lr_task_list.length)]
-
 var lr_feedback = {
 type: 'image-keyboard-response',
 stimulus: function(){
   var last_trial_correct = jsPsych.data.get().filter({TaskType: 'lr'}).last(1).values()[0].correct;
   if(last_trial_correct){
-    return 'img/Stim/correct.png'
+    return 'repo_site + img/Stim/correct.png'
   } else {
-    return 'img/Stim/incorrect.png'
+    return 'repo_site + img/Stim/incorrect.png'
   }
 },
 choices: jsPsych.NO_KEYS,
@@ -187,11 +183,13 @@ var learning_trial = {
     }
 };
 
+timeline.push(learning_trial)
 
 
 
 
-/* Combine attention & learning trials */
+/*
+/!* Combine attention & learning trials *!/
 var attention = {
   timeline:[
   {type: "image-keyboard-response",
@@ -276,6 +274,7 @@ var at_test_procedure = {
   repetitions: 1
 }
 timeline.push(at_test_procedure);
+*/
 
 
 /* Payment Inclusion */
@@ -395,7 +394,7 @@ var interaction_data = jsPsych.data.getInteractionData();
 jsPsych.data.checks = interaction_data;
 
 
-function save_data_csv() {
+/*function save_data_csv() {
     jQuery.ajax({
         type: 'post',
         cache: false,
@@ -406,14 +405,25 @@ function save_data_csv() {
             exp_data: jsPsych.data.get().csv()
         }
     });
-}
+}*/
 
 
-jsPsych.init({
+/*jsPsych.init({
     timeline: timeline,
     display_element: 'display_stage',
     preload_images: preload_list,
     on_finish: function () {
         save_data_csv();
     }
+});*/
+
+jsPsych.init({
+    timeline: timeline,
+    preload_images: preload_list,
+    display_element: 'display_stage',
+    on_finish: function(){
+      var csv = jsPsych.data.get().csv();
+      var filename = 'gem_test_01.csv';
+      downloadCSV(csv, filename);
+      jsPsych.data.displayData()}
 });
