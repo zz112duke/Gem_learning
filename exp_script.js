@@ -97,13 +97,13 @@ timeline.push(instr_4);
 
 /* define learning trials */
 var lr_stimuli_TS1 = [//TS1 based on color; warm left cold right
-    /*{ lr_stimulus: repo_site + "img/Stim/TS100.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS1', Scene: 'road', correct_response: 'ArrowLeft'}},
+    { lr_stimulus: repo_site + "img/Stim/TS100.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS1', Scene: 'road', correct_response: 'ArrowLeft'}},
     { lr_stimulus: repo_site + "img/Stim/TS101.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS1', Scene: 'road', correct_response: 'ArrowLeft'}},
     { lr_stimulus: repo_site + "img/Stim/TS102.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS1', Scene: 'road', correct_response: 'ArrowLeft'}},
-    { lr_stimulus: repo_site + "img/Stim/TS103.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS1', Scene: 'road', correct_response: 'ArrowLeft'}},*/
+    { lr_stimulus: repo_site + "img/Stim/TS103.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS1', Scene: 'road', correct_response: 'ArrowLeft'}},
     { lr_stimulus: repo_site + "img/Stim/TS110.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS1', Scene: 'road', correct_response: 'leftarrow'}},
     { lr_stimulus: repo_site + "img/Stim/TS111.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS1', Scene: 'road', correct_response: 'leftarrow'}},
-    /*{ lr_stimulus: repo_site + "img/Stim/TS112.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS1', Scene: 'road', correct_response: 'ArrowLeft'}},
+    { lr_stimulus: repo_site + "img/Stim/TS112.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS1', Scene: 'road', correct_response: 'ArrowLeft'}},
     { lr_stimulus: repo_site + "img/Stim/TS113.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS1', Scene: 'road', correct_response: 'ArrowLeft'}},
     { lr_stimulus: repo_site + "img/Stim/TS120.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS1', Scene: 'road', correct_response: 'ArrowRight'}},
     { lr_stimulus: repo_site + "img/Stim/TS121.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS1', Scene: 'road', correct_response: 'ArrowRight'}},
@@ -112,10 +112,10 @@ var lr_stimuli_TS1 = [//TS1 based on color; warm left cold right
     { lr_stimulus: repo_site + "img/Stim/TS130.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS1', Scene: 'road', correct_response: 'ArrowRight'}},
     { lr_stimulus: repo_site + "img/Stim/TS131.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS1', Scene: 'road', correct_response: 'ArrowRight'}},
     { lr_stimulus: repo_site + "img/Stim/TS132.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS1', Scene: 'road', correct_response: 'ArrowRight'}},
-    { lr_stimulus: repo_site + "img/Stim/TS133.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS1', Scene: 'road', correct_response: 'ArrowRight'}},*/
+    { lr_stimulus: repo_site + "img/Stim/TS133.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS1', Scene: 'road', correct_response: 'ArrowRight'}},
 ];
 var lr_stimuli_TS2 = [//TS2 based on shape; round up square down
-    /*{ lr_stimulus: repo_site + "img/Stim/TS200.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS2', Scene: 'mountain', correct_response: 'ArrowUp'}},
+    { lr_stimulus: repo_site + "img/Stim/TS200.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS2', Scene: 'mountain', correct_response: 'ArrowUp'}},
     { lr_stimulus: repo_site + "img/Stim/TS201.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS2', Scene: 'mountain', correct_response: 'ArrowUp'}},
     { lr_stimulus: repo_site + "img/Stim/TS202.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS2', Scene: 'mountain', correct_response: 'ArrowDown'}},
     { lr_stimulus: repo_site + "img/Stim/TS203.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS2', Scene: 'mountain', correct_response: 'ArrowDown'}},
@@ -128,9 +128,9 @@ var lr_stimuli_TS2 = [//TS2 based on shape; round up square down
     { lr_stimulus: repo_site + "img/Stim/TS222.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS2', Scene: 'mountain', correct_response: 'ArrowDown'}},
     { lr_stimulus: repo_site + "img/Stim/TS223.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS2', Scene: 'mountain', correct_response: 'ArrowDown'}},
     { lr_stimulus: repo_site + "img/Stim/TS230.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS2', Scene: 'mountain', correct_response: 'ArrowUp'}},
-    { lr_stimulus: repo_site + "img/Stim/TS231.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS2', Scene: 'mountain', correct_response: 'ArrowUp'}}*/,
+    { lr_stimulus: repo_site + "img/Stim/TS231.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS2', Scene: 'mountain', correct_response: 'ArrowUp'}},
     { lr_stimulus: repo_site + "img/Stim/TS232.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS2', Scene: 'mountain', correct_response: 'downarrow'}},
-    //{ lr_stimulus: repo_site + "img/Stim/TS233.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS2', Scene: 'mountain', correct_response: 'ArrowDown'}},
+    { lr_stimulus: repo_site + "img/Stim/TS233.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS2', Scene: 'mountain', correct_response: 'ArrowDown'}},
 ];
 
 var lr_stimuli_complete = lr_stimuli_TS1.concat(lr_stimuli_TS2);
