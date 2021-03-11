@@ -139,7 +139,7 @@ var learning = {
   type: "image-keyboard-response",
   stimulus: jsPsych.timelineVariable('lr_stimulus'),
   choices: function(){
-  var TS = jsPsych.data.get().filter({TaskType: 'lr'}).last(1).select('lr_TaskSet').values()[0];
+  var TS = jsPsych.data.get().filter({TaskType: 'lr'}).last(1).select('lr_TaskSet').values;
   console.log(TS)
   if(TS == 'TS1'){
     //console.log(TS.includes(1))
