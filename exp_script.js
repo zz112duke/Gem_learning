@@ -59,30 +59,19 @@ var iti_1000 = {
 }
 
 
-preload_list = ['img/Stim/TS100.png','img/Stim/TS101.png','img/Stim/TS102.png','img/Stim/TS103.png',
-'img/Stim/TS110.png','img/Stim/TS111.png','img/Stim/TS112.png','img/Stim/TS113.png','img/Stim/TS120.png',
-'img/Stim/TS121.png', 'img/Stim/TS122.png', 'img/Stim/TS123.png', 'img/Stim/TS130.png', 'img/Stim/TS131.png',
-'img/Stim/TS132.png', 'img/Stim/TS133.png', 'img/Stim/TS200.png', 'img/Stim/TS201.png', 'img/Stim/TS202.png',
-'img/Stim/TS202.png', 'img/Stim/TS203.png', 'img/Stim/TS210.png', 'img/Stim/TS211.png', 'img/Stim/TS212.png',
-'img/Stim/TS213.png', 'img/Stim/TS220.png', 'img/Stim/TS221.png', 'img/Stim/TS222.png', 'img/Stim/TS223.png',
-'img/Stim/TS230.png', 'img/Stim/TS231.png', 'img/Stim/TS232.png', 'img/Stim/TS233.png', 'img/Stim/fixation.png',
-'img/Stim/correct.png', 'img/Stim/incorrect.png']
+preload_list = [repo_site + 'img/Stim/TS100.png', repo_site + 'img/Stim/TS101.png', repo_site + 'img/Stim/TS102.png',
+repo_site +'img/Stim/TS103.png', repo_site + 'img/Stim/TS110.png', repo_site + 'img/Stim/TS111.png',
+repo_site + 'img/Stim/TS112.png', repo_site + 'img/Stim/TS113.png', repo_site + 'img/Stim/TS120.png',
+repo_site + 'img/Stim/TS121.png', repo_site + 'img/Stim/TS122.png', repo_site + 'img/Stim/TS123.png',
+repo_site + 'img/Stim/TS130.png', repo_site + 'img/Stim/TS131.png', repo_site + 'img/Stim/TS132.png',
+repo_site + 'img/Stim/TS133.png', repo_site + 'img/Stim/TS200.png', repo_site + 'img/Stim/TS201.png',
+repo_site +'img/Stim/TS202.png', repo_site + 'img/Stim/TS202.png', repo_site + 'img/Stim/TS203.png',
+repo_site + 'img/Stim/TS210.png', repo_site + 'img/Stim/TS211.png', repo_site + 'img/Stim/TS212.png',
+repo_site + 'img/Stim/TS213.png', repo_site + 'img/Stim/TS220.png', repo_site + 'img/Stim/TS221.png',
+repo_site + 'img/Stim/TS222.png', repo_site + 'img/Stim/TS223.png', repo_site + 'img/Stim/TS230.png',
+repo_site +'img/Stim/TS231.png', repo_site + 'img/Stim/TS232.png', repo_site + 'img/Stim/TS233.png',
+repo_site +'img/Stim/fixation.png', repo_site + 'img/Stim/correct.png', repo_site + 'img/Stim/incorrect.png']
 
-
-
-var debrief = {
-    type: "html-keyboard-response",
-    stimulus: function () {
-
-        var trials = jsPsych.data.get().filter({ test_part: 'prac' });
-        var correct_trials = trials.filter({ correct: true });
-        var accuracy = Math.round(correct_trials.count() / trials.count() * 100);
-        return "<p>You responded correctly on " + accuracy + "% of the trials.</p>" +
-            "<p>Remember that you should respond as accurately as possible. Press any key to move on.</p>";
-
-    }
-};
-timeline.push(debrief);
 
 var instr_2 = {
     type: 'external-html',
