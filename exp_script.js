@@ -133,10 +133,10 @@ var learning = {
   type: "image-keyboard-response",
   stimulus: jsPsych.timelineVariable('lr_stimulus'),
   choices: function(){
-  var TS = jsPsych.data.get().filter({TaskType: 'lr'}).last(0).select('lr_TaskSet').values;
+  var TS = jsPsych.data.get().filter({TaskType: 'lr'}).last(1).select('lr_TaskSet').values;
   console.log(TS)
-  if(TS.includes(1)){
-    console.log(TS.includes(1))
+  if(TS == 'TS1'){
+    //console.log(TS.includes(1))
     return ['ArrowLeft','ArrowRight']
   } else {
     return ['ArrowDown', 'ArrowUp']
