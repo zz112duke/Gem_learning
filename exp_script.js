@@ -138,17 +138,17 @@ var lr_stimuli_complete = lr_stimuli_TS1.concat(lr_stimuli_TS2);
 var learning = {
   type: "image-keyboard-response",
   stimulus: jsPsych.timelineVariable('lr_stimulus'),
-/*  choices: function(){
-  var TS = jsPsych.data.get().filter({TaskType: 'lr'}).select('lr_TaskSet').values;
+  choices: function(){
+  var TS = jsPsych.data.get().filter({TaskType: 'lr'}).last(1).select('lr_TaskSet').values;
   console.log(TS)
   if(TS == 'TS1'){
     //console.log(TS.includes(1))
-    return ['ArrowLeft','ArrowRight']
+    return ['leftarrow','rightarrow']
   } else {
-    return ['ArrowDown', 'ArrowUp']
+    return ['downarrow', 'uparrow']
   }
-},*/
-  choices:  ['leftarrow','rightarrow', 'downarrow', 'uparrow'],
+},
+  //choices:  ['leftarrow','rightarrow', 'downarrow', 'uparrow'],
   data: jsPsych.timelineVariable('data'),
   trial_duration: 1500,
   response_ends_trial: true,
