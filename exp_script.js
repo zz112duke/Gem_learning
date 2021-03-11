@@ -420,7 +420,6 @@ jsPsych.data.checks = interaction_data;
 jsPsych.init({
     timeline: timeline,
     preload_images: preload_list,
-    display_element: 'display_stage',
     on_finish: function(){
       var csv = jsPsych.data.get().csv();
       var filename = 'gem_test_01.csv';
