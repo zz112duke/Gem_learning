@@ -10,8 +10,6 @@ var file_name = task_name + '_' + sbj_id;
 
 var repo_site = "https://zz112duke.github.io/Gem_learning/";
 
-//Functions
-
 var timeline = [];
 
 
@@ -22,7 +20,7 @@ var enter_full = {
 timeline.push(enter_full);
 
 
-// Give consent
+/* -----Give consent-----*/
 var check_consent = function(elem) {
   if (document.getElementById('consent_checkbox').checked) {
     return true;
@@ -95,61 +93,193 @@ var instr_4 = {
 };
 timeline.push(instr_4);
 
-/* define learning trials */
-var lr_stimuli_TS1 = [//TS1 based on color; warm left cold right
-    { lr_stimulus: repo_site + "img/Stim/TS100.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS1', Scene: 'road', correct_response: 'leftarrow'}},
-    { lr_stimulus: repo_site + "img/Stim/TS101.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS1', Scene: 'road', correct_response: 'leftarrow'}},
-    { lr_stimulus: repo_site + "img/Stim/TS102.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS1', Scene: 'road', correct_response: 'leftarrow'}},
-    { lr_stimulus: repo_site + "img/Stim/TS103.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS1', Scene: 'road', correct_response: 'leftarrow'}},
-    { lr_stimulus: repo_site + "img/Stim/TS110.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS1', Scene: 'road', correct_response: 'leftarrow'}},
-    { lr_stimulus: repo_site + "img/Stim/TS111.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS1', Scene: 'road', correct_response: 'leftarrow'}},
-    { lr_stimulus: repo_site + "img/Stim/TS112.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS1', Scene: 'road', correct_response: 'leftarrow'}},
-    { lr_stimulus: repo_site + "img/Stim/TS113.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS1', Scene: 'road', correct_response: 'leftarrow'}},
-    { lr_stimulus: repo_site + "img/Stim/TS120.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS1', Scene: 'road', correct_response: 'rightarrow'}},
-    { lr_stimulus: repo_site + "img/Stim/TS121.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS1', Scene: 'road', correct_response: 'rightarrow'}},
-    { lr_stimulus: repo_site + "img/Stim/TS122.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS1', Scene: 'road', correct_response: 'rightarrow'}},
-    { lr_stimulus: repo_site + "img/Stim/TS123.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS1', Scene: 'road', correct_response: 'rightarrow'}},
-    { lr_stimulus: repo_site + "img/Stim/TS130.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS1', Scene: 'road', correct_response: 'rightarrow'}},
-    { lr_stimulus: repo_site + "img/Stim/TS131.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS1', Scene: 'road', correct_response: 'rightarrow'}},
-    { lr_stimulus: repo_site + "img/Stim/TS132.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS1', Scene: 'road', correct_response: 'rightarrow'}},
-    { lr_stimulus: repo_site + "img/Stim/TS133.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS1', Scene: 'road', correct_response: 'rightarrow'}},
+/* -----define learning stimuli----- */
+var lr_stimuli_TS1 = [//if based on color; warm left cold right; if based on shape; round up square down
+    { lr_stimulus: repo_site + "img/Stim/TS100.png", data: {TaskType: 'lr', lr_TaskSet: 'TS1', Scene: 'road'}},
+    { lr_stimulus: repo_site + "img/Stim/TS101.png", data: {TaskType: 'lr', lr_TaskSet: 'TS1', Scene: 'road'}},
+    { lr_stimulus: repo_site + "img/Stim/TS102.png", data: {TaskType: 'lr', lr_TaskSet: 'TS1', Scene: 'road'}},
+    { lr_stimulus: repo_site + "img/Stim/TS103.png", data: {TaskType: 'lr', lr_TaskSet: 'TS1', Scene: 'road'}},
+    { lr_stimulus: repo_site + "img/Stim/TS110.png", data: {TaskType: 'lr', lr_TaskSet: 'TS1', Scene: 'road'}},
+    { lr_stimulus: repo_site + "img/Stim/TS111.png", data: {TaskType: 'lr', lr_TaskSet: 'TS1', Scene: 'road'}},
+    { lr_stimulus: repo_site + "img/Stim/TS112.png", data: {TaskType: 'lr', lr_TaskSet: 'TS1', Scene: 'road'}},
+    { lr_stimulus: repo_site + "img/Stim/TS113.png", data: {TaskType: 'lr', lr_TaskSet: 'TS1', Scene: 'road'}},
+    { lr_stimulus: repo_site + "img/Stim/TS120.png", data: {TaskType: 'lr', lr_TaskSet: 'TS1', Scene: 'road'}},
+    { lr_stimulus: repo_site + "img/Stim/TS121.png", data: {TaskType: 'lr', lr_TaskSet: 'TS1', Scene: 'road'}},
+    { lr_stimulus: repo_site + "img/Stim/TS122.png", data: {TaskType: 'lr', lr_TaskSet: 'TS1', Scene: 'road'}},
+    { lr_stimulus: repo_site + "img/Stim/TS123.png", data: {TaskType: 'lr', lr_TaskSet: 'TS1', Scene: 'road'}},
+    { lr_stimulus: repo_site + "img/Stim/TS130.png", data: {TaskType: 'lr', lr_TaskSet: 'TS1', Scene: 'road'}},
+    { lr_stimulus: repo_site + "img/Stim/TS131.png", data: {TaskType: 'lr', lr_TaskSet: 'TS1', Scene: 'road'}},
+    { lr_stimulus: repo_site + "img/Stim/TS132.png", data: {TaskType: 'lr', lr_TaskSet: 'TS1', Scene: 'road'}},
+    { lr_stimulus: repo_site + "img/Stim/TS133.png", data: {TaskType: 'lr', lr_TaskSet: 'TS1', Scene: 'road'}},
 ];
-var lr_stimuli_TS2 = [//TS2 based on shape; round up square down
-    { lr_stimulus: repo_site + "img/Stim/TS200.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS2', Scene: 'mountain', correct_response: 'uparrow'}},
-    { lr_stimulus: repo_site + "img/Stim/TS201.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS2', Scene: 'mountain', correct_response: 'uparrow'}},
-    { lr_stimulus: repo_site + "img/Stim/TS202.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS2', Scene: 'mountain', correct_response: 'downarrow'}},
-    { lr_stimulus: repo_site + "img/Stim/TS203.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS2', Scene: 'mountain', correct_response: 'downarrow'}},
-    { lr_stimulus: repo_site + "img/Stim/TS210.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS2', Scene: 'mountain', correct_response: 'uparrow'}},
-    { lr_stimulus: repo_site + "img/Stim/TS211.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS2', Scene: 'mountain', correct_response: 'uparrow'}},
-    { lr_stimulus: repo_site + "img/Stim/TS212.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS2', Scene: 'mountain', correct_response: 'downarrow'}},
-    { lr_stimulus: repo_site + "img/Stim/TS213.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS2', Scene: 'mountain', correct_response: 'downarrow'}},
-    { lr_stimulus: repo_site + "img/Stim/TS220.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS2', Scene: 'mountain', correct_response: 'uparrow'}},
-    { lr_stimulus: repo_site + "img/Stim/TS221.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS2', Scene: 'mountain', correct_response: 'uparrow'}},
-    { lr_stimulus: repo_site + "img/Stim/TS222.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS2', Scene: 'mountain', correct_response: 'downarrow'}},
-    { lr_stimulus: repo_site + "img/Stim/TS223.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS2', Scene: 'mountain', correct_response: 'downarrow'}},
-    { lr_stimulus: repo_site + "img/Stim/TS230.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS2', Scene: 'mountain', correct_response: 'uparrow'}},
-    { lr_stimulus: repo_site + "img/Stim/TS231.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS2', Scene: 'mountain', correct_response: 'uparrow'}},
-    { lr_stimulus: repo_site + "img/Stim/TS232.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS2', Scene: 'mountain', correct_response: 'downarrow'}},
-    { lr_stimulus: repo_site + "img/Stim/TS233.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS2', Scene: 'mountain', correct_response: 'downarrow'}},
+var lr_stimuli_TS2 = [//if based on color; warm left cold right; if based on shape; round up square down
+    { lr_stimulus: repo_site + "img/Stim/TS200.png", data: {TaskType: 'lr', lr_TaskSet: 'TS2', Scene: 'mountain'}},
+    { lr_stimulus: repo_site + "img/Stim/TS201.png", data: {TaskType: 'lr', lr_TaskSet: 'TS2', Scene: 'mountain'}},
+    { lr_stimulus: repo_site + "img/Stim/TS202.png", data: {TaskType: 'lr', lr_TaskSet: 'TS2', Scene: 'mountain'}},
+    { lr_stimulus: repo_site + "img/Stim/TS203.png", data: {TaskType: 'lr', lr_TaskSet: 'TS2', Scene: 'mountain'}},
+    { lr_stimulus: repo_site + "img/Stim/TS210.png", data: {TaskType: 'lr', lr_TaskSet: 'TS2', Scene: 'mountain'}},
+    { lr_stimulus: repo_site + "img/Stim/TS211.png", data: {TaskType: 'lr', lr_TaskSet: 'TS2', Scene: 'mountain'}},
+    { lr_stimulus: repo_site + "img/Stim/TS212.png", data: {TaskType: 'lr', lr_TaskSet: 'TS2', Scene: 'mountain'}},
+    { lr_stimulus: repo_site + "img/Stim/TS213.png", data: {TaskType: 'lr', lr_TaskSet: 'TS2', Scene: 'mountain'}},
+    { lr_stimulus: repo_site + "img/Stim/TS220.png", data: {TaskType: 'lr', lr_TaskSet: 'TS2', Scene: 'mountain'}},
+    { lr_stimulus: repo_site + "img/Stim/TS221.png", data: {TaskType: 'lr', lr_TaskSet: 'TS2', Scene: 'mountain'}},
+    { lr_stimulus: repo_site + "img/Stim/TS222.png", data: {TaskType: 'lr', lr_TaskSet: 'TS2', Scene: 'mountain'}},
+    { lr_stimulus: repo_site + "img/Stim/TS223.png", data: {TaskType: 'lr', lr_TaskSet: 'TS2', Scene: 'mountain'}},
+    { lr_stimulus: repo_site + "img/Stim/TS230.png", data: {TaskType: 'lr', lr_TaskSet: 'TS2', Scene: 'mountain'}},
+    { lr_stimulus: repo_site + "img/Stim/TS231.png", data: {TaskType: 'lr', lr_TaskSet: 'TS2', Scene: 'mountain'}},
+    { lr_stimulus: repo_site + "img/Stim/TS232.png", data: {TaskType: 'lr', lr_TaskSet: 'TS2', Scene: 'mountain'}},
+    { lr_stimulus: repo_site + "img/Stim/TS233.png", data: {TaskType: 'lr', lr_TaskSet: 'TS2', Scene: 'mountain'}},
 ];
 
+
+/* -----randomize scene-feature pair----- */
+var lr_feature_list = ['color', 'shape'];
+var feature_index = Math.floor((Math.random()) * lr_feature_list.length)
+
+for (i = 0; i < lr_stimuli_TS1.length; i++) {
+    var ob = lr_stimuli_TS1[i];
+    ob.data.feature = lr_feature_list[feature_index];
+
+    if (ob.data.feature == 'color') //If current feature is color
+    {
+
+    //If current feature is color then check the second digit; 0,1 is warm --> left, 2,3 is cold --> right.
+        if (ob.lr_stimulus.charAt(53) == 0 || ob.lr_stimulus.charAt(53) == 1) //If sceond digit is 0,1 --> warm --> left
+        {
+            //correct_response = left
+            ob.data.correct_response = 'leftarrow';
+        }
+
+        else //If sceond digit is 2,3 --> cold --> right
+        {
+            //correct_response = right
+            ob.data.correct_response = 'rightarrow';
+        }
+
+    }
+
+    else //If current feature is shape
+    {
+    //If current feature is shape then check the third digit; 0,1 is round --> up, 2,3 is edge --> down.
+
+        if (ob.lr_stimulus.charAt(54) == 0 || ob.lr_stimulus.charAt(54) == 1) //If third digit is 0,1 --> round --> up
+        {
+            //correct_response = up
+            ob.data.correct_response = 'uparrow';
+        }
+
+        else //If third digit is 2,3 --> edge --> down
+        {
+            //correct_response = down
+            ob.data.correct_response = 'downarrow';
+        }
+
+    }
+};
+
+for (i = 0; i < lr_stimuli_TS2.length; i++) {
+    var ob = lr_stimuli_TS2[i];
+    ob.data.feature = lr_feature_list[1-feature_index];
+
+    if (ob.data.feature == 'color') //If current feature is color
+    {
+
+    //If current feature is color then check the second digit; 0,1 is warm --> left, 2,3 is cold --> right.
+        if (ob.lr_stimulus.charAt(53) == 0 || ob.lr_stimulus.charAt(53) == 1) //If sceond digit is 0,1 --> warm --> left
+        {
+            //correct_response = left
+            ob.data.correct_response = 'leftarrow';
+        }
+
+        else //If sceond digit is 2,3 --> cold --> right
+        {
+            //correct_response = right
+            ob.data.correct_response = 'rightarrow';
+        }
+
+    }
+
+    else //If current feature is shape
+    {
+    //If current feature is shape then check the third digit; 0,1 is round --> up, 2,3 is edge --> down.
+
+        if (ob.lr_stimulus.charAt(54) == 0 || ob.lr_stimulus.charAt(54) == 1) //If third digit is 0,1 --> round --> up
+        {
+            //correct_response = up
+            ob.data.correct_response = 'uparrow';
+        }
+
+        else //If third digit is 2,3 --> edge --> down
+        {
+            //correct_response = down
+            ob.data.correct_response = 'downarrow';
+        }
+
+    }
+};
+
 var lr_stimuli_complete = lr_stimuli_TS1.concat(lr_stimuli_TS2);
+console.log(lr_stimuli_complete);
+
+/*var lr_stimuli_TS1 = [//TS1 based on color; warm left cold right
+    { lr_stimulus: repo_site + "img/Stim/TS100.png", data: {feature: 'color', TaskType: 'lr', lr_TaskSet: 'TS1', Scene: 'road', correct_response: 'leftarrow'}},
+    { lr_stimulus: repo_site + "img/Stim/TS101.png", data: {feature: 'color', TaskType: 'lr', lr_TaskSet: 'TS1', Scene: 'road', correct_response: 'leftarrow'}},
+    { lr_stimulus: repo_site + "img/Stim/TS102.png", data: {feature: 'color', TaskType: 'lr', lr_TaskSet: 'TS1', Scene: 'road', correct_response: 'leftarrow'}},
+    { lr_stimulus: repo_site + "img/Stim/TS103.png", data: {feature: 'color', TaskType: 'lr', lr_TaskSet: 'TS1', Scene: 'road', correct_response: 'leftarrow'}},
+    { lr_stimulus: repo_site + "img/Stim/TS110.png", data: {feature: 'color', TaskType: 'lr', lr_TaskSet: 'TS1', Scene: 'road', correct_response: 'leftarrow'}},
+    { lr_stimulus: repo_site + "img/Stim/TS111.png", data: {feature: 'color', TaskType: 'lr', lr_TaskSet: 'TS1', Scene: 'road', correct_response: 'leftarrow'}},
+    { lr_stimulus: repo_site + "img/Stim/TS112.png", data: {feature: 'color', TaskType: 'lr', lr_TaskSet: 'TS1', Scene: 'road', correct_response: 'leftarrow'}},
+    { lr_stimulus: repo_site + "img/Stim/TS113.png", data: {feature: 'color', TaskType: 'lr', lr_TaskSet: 'TS1', Scene: 'road', correct_response: 'leftarrow'}},
+    { lr_stimulus: repo_site + "img/Stim/TS120.png", data: {feature: 'color', TaskType: 'lr', lr_TaskSet: 'TS1', Scene: 'road', correct_response: 'rightarrow'}},
+    { lr_stimulus: repo_site + "img/Stim/TS121.png", data: {feature: 'color', TaskType: 'lr', lr_TaskSet: 'TS1', Scene: 'road', correct_response: 'rightarrow'}},
+    { lr_stimulus: repo_site + "img/Stim/TS122.png", data: {feature: 'color', TaskType: 'lr', lr_TaskSet: 'TS1', Scene: 'road', correct_response: 'rightarrow'}},
+    { lr_stimulus: repo_site + "img/Stim/TS123.png", data: {feature: 'color', TaskType: 'lr', lr_TaskSet: 'TS1', Scene: 'road', correct_response: 'rightarrow'}},
+    { lr_stimulus: repo_site + "img/Stim/TS130.png", data: {feature: 'color', TaskType: 'lr', lr_TaskSet: 'TS1', Scene: 'road', correct_response: 'rightarrow'}},
+    { lr_stimulus: repo_site + "img/Stim/TS131.png", data: {feature: 'color', TaskType: 'lr', lr_TaskSet: 'TS1', Scene: 'road', correct_response: 'rightarrow'}},
+    { lr_stimulus: repo_site + "img/Stim/TS132.png", data: {feature: 'color', TaskType: 'lr', lr_TaskSet: 'TS1', Scene: 'road', correct_response: 'rightarrow'}},
+    { lr_stimulus: repo_site + "img/Stim/TS133.png", data: {feature: 'color', TaskType: 'lr', lr_TaskSet: 'TS1', Scene: 'road', correct_response: 'rightarrow'}},
+];
+var lr_stimuli_TS2 = [//TS2 based on shape; round up square down
+    { lr_stimulus: repo_site + "img/Stim/TS200.png", data: {feature: 'shape', TaskType: 'lr', lr_TaskSet: 'TS2', Scene: 'mountain', correct_response: 'uparrow'}},
+    { lr_stimulus: repo_site + "img/Stim/TS201.png", data: {feature: 'shape', TaskType: 'lr', lr_TaskSet: 'TS2', Scene: 'mountain', correct_response: 'uparrow'}},
+    { lr_stimulus: repo_site + "img/Stim/TS202.png", data: {feature: 'shape', TaskType: 'lr', lr_TaskSet: 'TS2', Scene: 'mountain', correct_response: 'downarrow'}},
+    { lr_stimulus: repo_site + "img/Stim/TS203.png", data: {feature: 'shape', TaskType: 'lr', lr_TaskSet: 'TS2', Scene: 'mountain', correct_response: 'downarrow'}},
+    { lr_stimulus: repo_site + "img/Stim/TS210.png", data: {feature: 'shape', TaskType: 'lr', lr_TaskSet: 'TS2', Scene: 'mountain', correct_response: 'uparrow'}},
+    { lr_stimulus: repo_site + "img/Stim/TS211.png", data: {feature: 'shape', TaskType: 'lr', lr_TaskSet: 'TS2', Scene: 'mountain', correct_response: 'uparrow'}},
+    { lr_stimulus: repo_site + "img/Stim/TS212.png", data: {feature: 'shape', TaskType: 'lr', lr_TaskSet: 'TS2', Scene: 'mountain', correct_response: 'downarrow'}},
+    { lr_stimulus: repo_site + "img/Stim/TS213.png", data: {feature: 'shape', TaskType: 'lr', lr_TaskSet: 'TS2', Scene: 'mountain', correct_response: 'downarrow'}},
+    { lr_stimulus: repo_site + "img/Stim/TS220.png", data: {feature: 'shape', TaskType: 'lr', lr_TaskSet: 'TS2', Scene: 'mountain', correct_response: 'uparrow'}},
+    { lr_stimulus: repo_site + "img/Stim/TS221.png", data: {feature: 'shape', TaskType: 'lr', lr_TaskSet: 'TS2', Scene: 'mountain', correct_response: 'uparrow'}},
+    { lr_stimulus: repo_site + "img/Stim/TS222.png", data: {feature: 'shape', TaskType: 'lr', lr_TaskSet: 'TS2', Scene: 'mountain', correct_response: 'downarrow'}},
+    { lr_stimulus: repo_site + "img/Stim/TS223.png", data: {feature: 'shape', TaskType: 'lr', lr_TaskSet: 'TS2', Scene: 'mountain', correct_response: 'downarrow'}},
+    { lr_stimulus: repo_site + "img/Stim/TS230.png", data: {feature: 'shape', TaskType: 'lr', lr_TaskSet: 'TS2', Scene: 'mountain', correct_response: 'uparrow'}},
+    { lr_stimulus: repo_site + "img/Stim/TS231.png", data: {feature: 'shape', TaskType: 'lr', lr_TaskSet: 'TS2', Scene: 'mountain', correct_response: 'uparrow'}},
+    { lr_stimulus: repo_site + "img/Stim/TS232.png", data: {feature: 'shape', TaskType: 'lr', lr_TaskSet: 'TS2', Scene: 'mountain', correct_response: 'downarrow'}},
+    { lr_stimulus: repo_site + "img/Stim/TS233.png", data: {feature: 'shape', TaskType: 'lr', lr_TaskSet: 'TS2', Scene: 'mountain', correct_response: 'downarrow'}},
+];*/
+
 
 var learning = {
   type: "image-keyboard-response",
   stimulus: jsPsych.timelineVariable('lr_stimulus'),
-  choices: function(){
-  var TS = jsPsych.data.get().filter({TaskType: 'lr'}).last(1).select('lr_TaskSet').values;
-  console.log(TS)
-  if(TS == 'TS1'){
-    //console.log(TS.includes(1))
-    return ['leftarrow','rightarrow']
-  } else {
-    return ['downarrow', 'uparrow']
-  }
-},
-  //choices:  ['leftarrow','rightarrow', 'downarrow', 'uparrow'],
   data: jsPsych.timelineVariable('data'),
+  choices: function(){
+  //var TS = jsPsych.data.get().filter({TaskType: 'lr'}).last(1).select('stimulus').values;
+  //console.log(TS)
+  //if(TS.charAt(52) == '1'){
+      var response_set = jsPsych.data.get().filter({ TaskType: 'lr' }).last(1).select('correct_response').values;
+      //var response_set = jsPsych.timelineVariable('correct_response');
+      console.log(response_set)
+      if (response_set.charAt(0) == 'l' || response_set.charAt(0) == 'r') {
+          return ['leftarrow','rightarrow'] //this should be randomly assigned everytime
+      }
+      else {
+          return ['downarrow', 'uparrow']
+      }
+  //} else {
+    //return ['downarrow', 'uparrow']
+  //}
+},
   trial_duration: 1500,
   response_ends_trial: true,
   on_finish: function(data){
@@ -185,98 +315,7 @@ var learning_trial = {
 timeline.push(learning_trial)
 
 
-
-
-/*
-/!* Combine attention & learning trials *!/
-var attention = {
-  timeline:[
-  {type: "image-keyboard-response",
-  stimulus: jsPsych.timelineVariable('at_stimulus'),
-  choices: ['h'],
-  data: jsPsych.timelineVariable('data'),
-  trial_duration: 800,
-  on_finish: function(data){
-
-    var at_counter = jsPsych.data.get().filter({TaskType: 'at'}).select('rt').values.length
-    var lr_counter = jsPsych.data.get().filter({TaskType: 'lr'}).select('rt').values.length //CHECK!!!
-    //console.log('starts here')
-
-    data.correct = data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response);
-    var rt_mean = jsPsych.data.get().filter({ at_TrialType: 'frequent', key_press: 72 }).select('rt').mean(); //if you change response key, don't forget to search for key code
-    var rt_sd = jsPsych.data.get().filter({at_TrialType: 'frequent', key_press: 72}).select('rt').sd();
-    data.at_counter = at_counter
-    console.log(at_counter)
-    data.lr_counter = lr_counter
-    data.at_RunningMean = rt_mean
-    data.sd = rt_sd
-    data.slow = rt_mean+0.75*rt_sd
-    data.fast = Math.abs(rt_mean-0.75*rt_sd) //0.8??
-
-
-    if (at_counter > 3) {
-        //see if the last trial was an infrequent trial
-        var last_infreq = jsPsych.data.get().filter({TaskType: 'at'}).last(3).select('at_TrialType').values;
-        if (last_infreq.includes('infrequent') == true) {
-        console.log('there is an infreq')}
-
-        //see if there was an error in the last 3 trials
-        var last_correct = jsPsych.data.get().filter({ TaskType: 'at' }).last(3).select('correct').values;
-        console.log(last_correct)
-        if (last_correct.includes(false) == true){
-        console.log('there is an error')}
-
-        var last_rt = jsPsych.data.get().filter({at_TrialType: 'frequent'}).last(3).select('rt').values;
-        //console.log(last_rt);
-        for (var i = 0; i<3; i++){
-         if (last_rt[i] <100) {
-           last_rt[i] = true
-            }
-        };
-        if (last_rt.includes(true)) {
-         console.log('too fast')};
-
-        var last_lr = jsPsych.data.get().filter({ test_part: 'test' }).last(3).select('TaskType').values;
-        console.log(last_lr)
-
-        //calculate trailing RT after the third trial
-        var rt_three = jsPsych.data.get().filter({at_TrialType: 'frequent'}).last(3).select('rt').mean();
-        data.at_TrailingMean = rt_three
-
-  };
-
-    if (at_counter < 80 || last_infreq.includes('infrequent') || last_correct.includes(false) || last_rt.includes(true) || last_lr.includes('lr')){
-        lr_node = 0
-    }
-    else {   
-
-      if(rt_three >= rt_mean+0.75*rt_sd){
-            lr_node = true;
-            data.diff = 'slow'
-          } else if (rt_three < Math.abs(rt_mean-0.75*rt_sd)){ //0.8??
-                lr_node = false;
-                data.diff = 'fast'
-            }
-            else {lr_node = 0}
-      }
-    }
-  },
-
-],
-}
-
-
-var at_test_procedure = {
-  timeline: [attention,if_node_1,if_node_2,iti_200],
-  timeline_variables: at_stimuli,
-  randomize_order: false,
-  repetitions: 1
-}
-timeline.push(at_test_procedure);
-*/
-
-
-/* Payment Inclusion */
+/* -----Payment Inclusion----- */
 var payment_inc = {
     type: 'survey-html-form',
     preamble: '<p> You have finished the game! Please answer a few questions regarding the rules of the game. </p>',
@@ -329,7 +368,7 @@ var rules_Q34 = {
 timeline.push(rules_Q34);
 
 
-/* Demographics */
+/* -----Demographics----- */
 
 var Q1_options = ["Orientation of the black bars", "The space between the black bars (how tight or loose the bars are)"];
 var Q2_options = ["Orientation of the black bars", "The space between the black bars (how tight or loose the bars are)"];
