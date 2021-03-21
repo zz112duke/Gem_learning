@@ -139,6 +139,7 @@ var feature_index = Math.floor((Math.random()) * lr_feature_list.length)
 for (i = 0; i < lr_stimuli_TS1.length; i++) {
     var ob = lr_stimuli_TS1[i];
     ob.data.feature = lr_feature_list[feature_index];
+    ob.allowed_keys = ['leftarrow','rightarrow'];
 
     if (ob.data.feature == 'color') //If current feature is color
     {
@@ -146,13 +147,11 @@ for (i = 0; i < lr_stimuli_TS1.length; i++) {
     //If current feature is color then check the second digit; 0,1 is warm --> left, 2,3 is cold --> right.
         if (ob.lr_stimulus.charAt(53) == 0 || ob.lr_stimulus.charAt(53) == 1) //If sceond digit is 0,1 --> warm --> left
         {
-            //correct_response = left
             ob.data.correct_response = 'leftarrow';
         }
 
         else //If sceond digit is 2,3 --> cold --> right
         {
-            //correct_response = right
             ob.data.correct_response = 'rightarrow';
         }
 
@@ -160,18 +159,16 @@ for (i = 0; i < lr_stimuli_TS1.length; i++) {
 
     else //If current feature is shape
     {
-    //If current feature is shape then check the third digit; 0,1 is round --> up, 2,3 is edge --> down.
+    //If current feature is shape then check the third digit; 0,1 is round --> left, 2,3 is edge --> right.
 
-        if (ob.lr_stimulus.charAt(54) == 0 || ob.lr_stimulus.charAt(54) == 1) //If third digit is 0,1 --> round --> up
+        if (ob.lr_stimulus.charAt(54) == 0 || ob.lr_stimulus.charAt(54) == 1) //If third digit is 0,1 --> round --> left
         {
-            //correct_response = up
-            ob.data.correct_response = 'uparrow';
+            ob.data.correct_response = 'leftarrow';
         }
 
-        else //If third digit is 2,3 --> edge --> down
+        else //If third digit is 2,3 --> edge --> right
         {
-            //correct_response = down
-            ob.data.correct_response = 'downarrow';
+            ob.data.correct_response = 'rightarrow';
         }
 
     }
@@ -180,21 +177,20 @@ for (i = 0; i < lr_stimuli_TS1.length; i++) {
 for (i = 0; i < lr_stimuli_TS2.length; i++) {
     var ob = lr_stimuli_TS2[i];
     ob.data.feature = lr_feature_list[1-feature_index];
+    ob.allowed_keys = ['uparrow','downarrow'];
 
     if (ob.data.feature == 'color') //If current feature is color
     {
 
-    //If current feature is color then check the second digit; 0,1 is warm --> left, 2,3 is cold --> right.
-        if (ob.lr_stimulus.charAt(53) == 0 || ob.lr_stimulus.charAt(53) == 1) //If sceond digit is 0,1 --> warm --> left
+    //If current feature is color then check the second digit; 0,1 is warm --> up, 2,3 is cold --> down.
+        if (ob.lr_stimulus.charAt(53) == 0 || ob.lr_stimulus.charAt(53) == 1) //If sceond digit is 0,1 --> warm --> up
         {
-            //correct_response = left
-            ob.data.correct_response = 'leftarrow';
+            ob.data.correct_response = 'uparrow';
         }
 
-        else //If sceond digit is 2,3 --> cold --> right
+        else //If sceond digit is 2,3 --> cold --> down
         {
-            //correct_response = right
-            ob.data.correct_response = 'rightarrow';
+            ob.data.correct_response = 'downarrow';
         }
 
     }
@@ -263,23 +259,7 @@ var learning = {
   type: "image-keyboard-response",
   stimulus: jsPsych.timelineVariable('lr_stimulus'),
   data: jsPsych.timelineVariable('data'),
-  choices: function(){
-  //var TS = jsPsych.data.get().filter({TaskType: 'lr'}).last(1).select('stimulus').values;
-  //console.log(TS)
-  //if(TS.charAt(52) == '1'){
-      var response_set = jsPsych.data.get().filter({ TaskType: 'lr' }).last(1).select('correct_response').values;
-      //var response_set = jsPsych.timelineVariable('correct_response');
-      console.log(response_set)
-      if (response_set.charAt(0) == 'l' || response_set.charAt(0) == 'r') {
-          return ['leftarrow','rightarrow'] //this should be randomly assigned everytime
-      }
-      else {
-          return ['downarrow', 'uparrow']
-      }
-  //} else {
-    //return ['downarrow', 'uparrow']
-  //}
-},
+  choices: jsPsych.timelineVariable('allowed_keys'),
   trial_duration: 1500,
   response_ends_trial: true,
   on_finish: function(data){
@@ -308,7 +288,7 @@ var learning_trial = {
     timeline_variables: lr_stimuli_complete,
     sample: {
         type: 'fixed-repetitions',
-        size: 4, // 4 repetitions of each trial, 128 total trials, order is randomized.
+        size: 1, // 4 repetitions of each trial, 128 total trials, order is randomized.
     }
 };
 
@@ -319,99 +299,145 @@ timeline.push(learning_trial)
 var payment_inc = {
     type: 'survey-html-form',
     preamble: '<p> You have finished the game! Please answer a few questions regarding the rules of the game. </p>',
-    html: '<p> The correct response key for shapes with <b> gray background </b> is <input name="first" type="text" />. <br> The correct response keys for shapes with <b> blue </b> or <b> green </b> background are <input name = "second" type = "text" /> and <input name="third" type="text" />. </p> ',
+    html: '<p> The correct response keys are <input name="first" type="text" />. <br> The correct response keys for shapes with <b> blue </b> or <b> green </b> background are <input name = "second" type = "text" /> and <input name="third" type="text" />. </p> ',
     autofocus: 'test-resp-box',
     required: true
 };
 timeline.push(payment_inc);
 
 /* A Few Q on Rules */
-var rules_Q1 = {
+var FR_Q1 = {
     type: 'survey-html-form',
     preamble: '<p> Please answer a few questions regarding the rules of the game. </p>',
-    html: '<p> What do you think determined the feedback that you received? <input name="first" type="text" /> </p> ',
+    html: '<p> When you were playing the game, what determined the correct response to a gem? Please describe in as much detail as you can. If you are not sure, please share your best guess.  <input name="first" type="text" /> </p> ',
     autofocus: 'test-resp-box',
     required: true
 };
-timeline.push(rules_Q1);
+timeline.push(FR_Q1);
 
 
-var Q1_options = ["No", "Yes"];
-var multi_choice_block1 = {
+var conf_options = ["not confident at all", "slightly confident", "somewhat confident", "fairly confident", "very confident"];
+var multi_choice_Q1 = {
     type: 'survey-multi-choice',
     button_label: 'Next',
     preamble: 'Please answer a few questions regarding the rules of the game.',
     questions: [
-        { prompt: "Do you think the color of the background mattered?", name: 'Q1', options: Q1_options, required: true, horizontal: false },
+        { prompt: "On a scale of 1-5, how confident are you in your choice?", name: 'Q1', options: conf_options, required: true, horizontal: false },
     ],
 };
-timeline.push(multi_choice_block1);
+timeline.push(multi_choice_Q1);
 
 
-var rules_Q2 = {
-    type: 'survey-html-form',
-    preamble: '<p> Please answer a few questions regarding the rules of the game. </p>',
-    html: '<p> What do you think the green and blue backgrounds indicated? <input name = "first" type = "text" /> </p>',
-autofocus: 'test-resp-box',
-    required: true
+var yn_options = ["Definitely No","Maybe No", "Maybe Yes", "Definitely Yes"];
+var multi_choice_Q2 = {
+    type: 'survey-multi-choice',
+    button_label: 'Next',
+    preamble: 'Please answer a few questions regarding the rules of the game.',
+    questions: [
+        { prompt: "Did the same thing determine the correct response to each gem on the mountain and the road?", name: 'Q2', options: yn_options, required: true, horizontal: false },
+    ],
 };
-timeline.push(rules_Q2);
+timeline.push(multi_choice_Q2);
 
 
-var rules_Q34 = {
+var FR_Q2 = {
     type: 'survey-html-form',
     preamble: '<p> Please answer a few questions regarding the rules of the game. </p>',
-    html: '<p> What do you think determined the feedback you received when you saw the green background? <input name = "first" type = "text" /> <br> What do you think determined the feedback you received when you saw the blue background? <input name = "second" type = "text" /> </p>',
+    html: '<p> What determined the correct response to a gem when you were on the mountain? Please describe in as much detail as you can. If you are not sure, please share your best guess.  <input name="first" type="text" /> </p> ',
     autofocus: 'test-resp-box',
     required: true
 };
-timeline.push(rules_Q34);
+timeline.push(FR_Q2);
 
+timeline.push(multi_choice_Q1);
+
+var FR_Q3 = {
+    type: 'survey-html-form',
+    preamble: '<p> Please answer a few questions regarding the rules of the game. </p>',
+    html: '<p> What determined the correct response to a gem when you were on the road? Please describe in as much detail as you can. If you are not sure, please share your best guess.  <input name="first" type="text" /> </p> ',
+    autofocus: 'test-resp-box',
+    required: true
+};
+timeline.push(FR_Q3);
+
+timeline.push(multi_choice_Q1);
+
+
+var FR_Q4 = {
+    type: 'survey-html-form',
+    preamble: '<p> Now, we will ask you to pick between different options to see how you learned the rules of the game. </p>',
+    html: '<p>  What determined the correct response to a gem when you were on the mountain? If you do not know for sure, please make your best guess.  <input name="first" type="text" /> </p> ',
+    autofocus: 'test-resp-box',
+    required: true
+};
+timeline.push(FR_Q4);
+
+
+var Q3P1_options = ["The color of the gems", "The shape of the gems"];
+var multi_choice_Q3 = {
+    type: 'survey-multi-choice',
+    button_label: 'Next',
+    preamble: 'Now, we will ask you to pick between different options to see how you learned the rules of the game.',
+    questions: [
+        { prompt: "What determined the correct response to a gem when you were on the mountain? If you do not know for sure, please make your best guess.", name: 'Q3P1', options: Q3P1_options, required: true },
+        { prompt: "On a scale of 1-5, how confident are you in your choice?", name: 'Q3P2', options: conf_options, required: true },
+    ],
+};
+timeline.push(multi_choice_Q3);
+
+var multi_choice_Q4 = {
+    type: 'survey-multi-choice',
+    button_label: 'Next',
+    preamble: 'Now, we will ask you to pick between different options to see how you learned the rules of the game.',
+    questions: [
+        { prompt: "What determined the correct response to a gem when you were on the road? If you do not know for sure, please make your best guess.", name: 'Q4P1', options: Q3P1_options, required: true },
+        { prompt: "On a scale of 1-5, how confident are you in your choice?", name: 'Q4P2', options: conf_options, required: true },
+    ],
+};
+timeline.push(multi_choice_Q4);
+
+var feature = lr_feature_list[feature_index];
+if (feature == 'color') //If current feature is color
+    {   var Q5P1_options = ["If the gem was round (circle or oval), press “up”. If the gem had straight edges (square or rounded square), press “down”.",
+        "If the gem was round (circle or oval), press “down”. If the gem had straight edges (square or rounded square), press “up”."];
+        var Q6P1_options =["If the gem was warm-tones (yellow or orange), press “right”. If the gem was cool-toned (light or dark blue), press “left”.",
+"If the gem was warm-tones (yellow or orange), press “left”. If the gem was cool-toned (light or dark blue), press “right”."]
+    }
+else {  var Q5P1_options =["If the gem was warm-tones (yellow or orange), press “right”. If the gem was cool-toned (light or dark blue), press “left”.",
+"If the gem was warm-tones (yellow or orange), press “left”. If the gem was cool-toned (light or dark blue), press “right”."];
+        var Q6P1_options = ["If the gem was round (circle or oval), press “up”. If the gem had straight edges (square or rounded square), press “down”.",
+        "If the gem was round (circle or oval), press “down”. If the gem had straight edges (square or rounded square), press “up”."];
+    };
+
+
+var multi_choice_Q5 = {
+    type: 'survey-multi-choice',
+    button_label: 'Next',
+    preamble: '',
+    questions: [
+        { prompt: "What were the rules of the game when you were on the road? If you do not know for sure, please make your best guess.", name: 'Q5P1', options: Q5P1_options, required: true },
+        { prompt: "On a scale of 1-5, how confident are you in your choice?", name: 'Q5P2', options: conf_options, required: true },
+    ],
+};
+timeline.push(multi_choice_Q5);
+
+var multi_choice_Q6 = {
+    type: 'survey-multi-choice',
+    button_label: 'Next',
+    preamble: '',
+    questions: [
+        { prompt: "What were the rules of the game when you were on the mountain? If you do not know for sure, please make your best guess.", name: 'Q6P1', options: Q6P1_options, required: true },
+        { prompt: "On a scale of 1-5, how confident are you in your choice?", name: 'Q6P2', options: conf_options, required: true },
+    ],
+};
+timeline.push(multi_choice_Q6);
 
 /* -----Demographics----- */
-
-var Q1_options = ["Orientation of the black bars", "The space between the black bars (how tight or loose the bars are)"];
-var Q2_options = ["Orientation of the black bars", "The space between the black bars (how tight or loose the bars are)"];
-var Q3_options = ["AD","BC"];
-var Q4_options = ["AD","BC"];
 var DemoQ1_options = ["Male", "Female", "Gender Non-conforming", "Other", "Choose not to respond"];
 var DemoQ2_options = ["Under 18", "18-24", "25-34", "35-44", "45-54", "55-64", "65-74", "75-84", "85 or older"];
 var DemoQ3_options = ["Hispanic/Latino", "Not Hispanic/Latino", "Choose not to respond"];
 var DemoQ4_options = ["American Indian/Native American","White", "Black/African American", "Asian", "Native Hawaiian or Pacific Islander", "More than one race", "Other","Choose not to respond"];
 var DemoQ5_options = ["Less than a high school diploma", "High school degree or equivalent (e.g. GED)", "Some college, no degree", "Associate degree (e.g. AA, AS)", "College degree", "Master's degree (e.g. MA, MS, MEd)", "Doctorate or professional degree (e.g. MD, DDS, PhD)"];
-
-var multi_choice_block2 = {
-    type: 'survey-multi-choice',
-    button_label: 'Next',
-    preamble: 'Please answer some further questions on the rule.',
-    questions: [
-        { prompt: "Which following feature do you think determined the feedback you received when you saw the green background?", name: 'Q1', options: Q1_options, required: true, horizontal: false },
-        { prompt: "Which following feature do you think determined the feedback you received when you saw the blue background? ", name: 'Q2', options: Q2_options, required: true, horizontal: false },
-    ],
-};
-timeline.push(multi_choice_block2);
-
-
-var multi_choice_block3 = {
-    type: 'survey-multi-choice',
-    button_label: 'Next',
-    preamble: 'Which choice do you think describes the correct rules when you saw the green background?',
-    questions: [
-        { prompt: "A. If the orientation of the black bars is tilted toward the right, press X <br> B. If the orientation of the black bars is tilted toward the right, press C <br> C. If the orientation of the black bars is tilted toward the left, press X <br> D. If the orientation of the black bars is tilted toward the left, press C", name: 'Q3', options: Q3_options, required: true, horizontal: false },
-    ],
-};
-timeline.push(multi_choice_block3);
-
-
-var multi_choice_block4 = {
-    type: 'survey-multi-choice',
-    button_label: 'Next',
-    preamble: 'Which choice do you think describes the correct rules when you saw the blue background?',
-    questions: [
-        { prompt: "A. If the orientation of the black bars is tilted toward the right, press X <br> B. If the orientation of the black bars is tilted toward the right, press C <br> C. If the orientation of the black bars is tilted toward the left, press X <br> D. If the orientation of the black bars is tilted toward the left, press C", name: 'Q4', options: Q4_options, required: true, horizontal: false },
-    ],
-};
-timeline.push(multi_choice_block4);
 
 
 var multi_choice_Demo = {
@@ -443,10 +469,10 @@ jsPsych.data.checks = interaction_data;
             exp_data: jsPsych.data.get().csv()
         }
     });
-}*/
+}
 
 
-/*jsPsych.init({
+jsPsych.init({
     timeline: timeline,
     display_element: 'display_stage',
     preload_images: preload_list,
@@ -460,7 +486,7 @@ jsPsych.init({
     preload_images: preload_list,
     on_finish: function(){
       var csv = jsPsych.data.get().csv();
-      var filename = 'gem_test_01.csv';
+      var filename = 'gem_test_00.csv';
       downloadCSV(csv, filename);
       jsPsych.data.displayData()}
 });
