@@ -299,7 +299,7 @@ timeline.push(learning_trial)
 var payment_inc = {
     type: 'survey-html-form',
     preamble: '<p> You have finished the game! Please answer a few questions regarding the rules of the game. </p>',
-    html: '<p> The correct response keys are <input name="first" type="text" />. <br> The correct response keys for shapes with <b> blue </b> or <b> green </b> background are <input name = "second" type = "text" /> and <input name="third" type="text" />. </p> ',
+    html: '<p> The four possible correct response keys are <input name="first" type="text" /> <input name="second" type="text" /> <input name="third" type="text" /> <input name="fourth" type="text" />. </p> ',
     autofocus: 'test-resp-box',
     required: true
 };
@@ -308,8 +308,8 @@ timeline.push(payment_inc);
 /* A Few Q on Rules */
 var FR_Q1 = {
     type: 'survey-html-form',
-    preamble: '<p> Please answer a few questions regarding the rules of the game. </p>',
-    html: '<p> When you were playing the game, what determined the correct response to a gem? Please describe in as much detail as you can. If you are not sure, please share your best guess.  <input name="first" type="text" /> </p> ',
+    preamble: '',
+    html: '<p> When you were playing the game, what determined the correct response to a gem? <br> Please describe in as much detail as you can. If you are not sure, please share your best guess.  <input name="first" type="text" /> </p> ',
     autofocus: 'test-resp-box',
     required: true
 };
@@ -320,9 +320,9 @@ var conf_options = ["not confident at all", "slightly confident", "somewhat conf
 var multi_choice_Q1 = {
     type: 'survey-multi-choice',
     button_label: 'Next',
-    preamble: 'Please answer a few questions regarding the rules of the game.',
+    preamble: '',
     questions: [
-        { prompt: "On a scale of 1-5, how confident are you in your choice?", name: 'Q1', options: conf_options, required: true, horizontal: false },
+        { prompt: "On a scale of 1-5, how confident are you in your answer to the last question?", name: 'Q1', options: conf_options, required: true, horizontal: false },
     ],
 };
 timeline.push(multi_choice_Q1);
@@ -458,7 +458,7 @@ var interaction_data = jsPsych.data.getInteractionData();
 jsPsych.data.checks = interaction_data;
 
 
-/*function save_data_csv() {
+function save_data_csv() {
     jQuery.ajax({
         type: 'post',
         cache: false,
@@ -479,9 +479,9 @@ jsPsych.init({
     on_finish: function () {
         save_data_csv();
     }
-});*/
+});
 
-jsPsych.init({
+/*jsPsych.init({
     timeline: timeline,
     preload_images: preload_list,
     on_finish: function(){
@@ -489,4 +489,4 @@ jsPsych.init({
       var filename = 'gem_test_00.csv';
       downloadCSV(csv, filename);
       jsPsych.data.displayData()}
-});
+});*/
