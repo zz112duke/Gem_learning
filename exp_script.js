@@ -298,7 +298,7 @@ timeline.push(learning_trial)
 /* -----Payment Inclusion----- */
 var payment_inc = {
     type: 'survey-html-form',
-    preamble: '<p> You have finished the game! Please answer a few questions regarding the rules of the game. </p>',
+    preamble: '<p> You have finished the Gemstone Expedition! Please answer a few questions about the rules of the game. </p>',
     html: '<p> The four possible correct response keys are <input name="first" type="text" /> <input name="second" type="text" /> <input name="third" type="text" /> <input name="fourth" type="text" />. </p> ',
     autofocus: 'test-resp-box',
     required: true
