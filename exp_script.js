@@ -295,6 +295,18 @@ var learning_trial = {
 timeline.push(learning_trial)
 
 
+/* -----Attention Bonus Check----- */
+var attention_bonus_check = {
+    type: 'survey-html-form',
+    preamble: '<p> This is an attention check question. If you answered these questions correctly, you will get bonus payment.</p>',
+    html: '<p> The four possible correct response keys are <input name="first" type="text" /> <input name="second" type="text" /> <input name="third" type="text" /> <input name="fourth" type="text" />. </p> ',
+    autofocus: 'test-resp-box',
+    required: true
+};
+timeline.push(payment_inc);
+
+
+
 /* -----Payment Inclusion----- */
 var payment_inc = {
     type: 'survey-html-form',
@@ -397,6 +409,7 @@ var multi_choice_Q4 = {
 timeline.push(multi_choice_Q4);
 
 var feature = lr_feature_list[feature_index];
+console.log(feature)
 if (feature == 'color') //If current feature is color
     {   var Q5P1_options = ["If the gem was round (circle or oval), press “up”. If the gem had straight edges (square or rounded square), press “down”.",
         "If the gem was round (circle or oval), press “down”. If the gem had straight edges (square or rounded square), press “up”."];
