@@ -303,7 +303,7 @@ var attention_bonus_check = {
     autofocus: 'test-resp-box',
     required: true
 };
-timeline.push(payment_inc);
+timeline.push(attention_bonus_check);
 
 
 
