@@ -303,7 +303,7 @@ var attention_bonus_check = {
     autofocus: 'test-resp-box',
     required: true
 };
-timeline.push(attention_bonus_check);
+//timeline.push(attention_bonus_check); interleave this?
 
 
 
@@ -411,15 +411,15 @@ timeline.push(multi_choice_Q4);
 var feature = lr_feature_list[feature_index];
 console.log(feature)
 if (feature == 'color') //If current feature is color
-    {   var Q5P1_options = ["If the gem was round (circle or oval), press “up”. If the gem had straight edges (square or rounded square), press “down”.",
-        "If the gem was round (circle or oval), press “down”. If the gem had straight edges (square or rounded square), press “up”."];
-        var Q6P1_options =["If the gem was warm-tones (yellow or orange), press “right”. If the gem was cool-toned (light or dark blue), press “left”.",
-"If the gem was warm-tones (yellow or orange), press “left”. If the gem was cool-toned (light or dark blue), press “right”."]
-    }
-else {  var Q5P1_options =["If the gem was warm-tones (yellow or orange), press “right”. If the gem was cool-toned (light or dark blue), press “left”.",
+    {   var Q5P1_options = ["If the gem was warm-tones (yellow or orange), press “right”. If the gem was cool-toned (light or dark blue), press “left”.",
 "If the gem was warm-tones (yellow or orange), press “left”. If the gem was cool-toned (light or dark blue), press “right”."];
-        var Q6P1_options = ["If the gem was round (circle or oval), press “up”. If the gem had straight edges (square or rounded square), press “down”.",
-        "If the gem was round (circle or oval), press “down”. If the gem had straight edges (square or rounded square), press “up”."];
+        var Q6P1_options =["If the gem was round (circle or oval), press “up”. If the gem had straight edges (square or rounded square), press “down”.",
+        "If the gem was round (circle or oval), press “down”. If the gem had straight edges (square or rounded square), press “up”."]
+    }
+else {  var Q5P1_options =["If the gem was round (circle or oval), press “right”. If the gem had straight edges (square or rounded square), press “left”.",
+"If the gem was round (circle or oval), press “left”. If the gem had straight edges (square or rounded square), press “right”."];
+        var Q6P1_options = ["If the gem was warm-tones (yellow or orange), press “up”. If the gem was cool-toned (light or dark blue), press “down”.",
+        "If the gem was warm-tones (yellow or orange), press “down”. If the gem was cool-toned (light or dark blue), press “up”."];
     };
 
 
