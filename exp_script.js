@@ -38,7 +38,7 @@ var consent = {
   cont_fn: check_consent,
   cont_btn: 'start',
 };
-//timeline.push(consent);
+timeline.push(consent);
 
 
 var instr_1 = {
@@ -288,7 +288,7 @@ var learning_trial = {
     timeline_variables: lr_stimuli_complete,
     sample: {
         type: 'fixed-repetitions',
-        size: 1, // 4 repetitions of each trial, 128 total trials, order is randomized.
+        size: 4, // 4 repetitions of each trial, 128 total trials, order is randomized.
     }
 };
 
