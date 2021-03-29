@@ -93,6 +93,13 @@ var instr_4 = {
 };
 timeline.push(instr_4);
 
+var instr_5 = {
+    type: 'external-html',
+    url: repo_site + "content/instr_5.html",
+    cont_btn: 'next',
+};
+timeline.push(instr_5);
+
 /* -----define learning stimuli----- */
 var lr_stimuli_TS1 = [//if based on color; warm left cold right; if based on shape; round up square down
     { lr_stimulus: repo_site + "img/Stim/TS100.png", data: {TaskType: 'lr', lr_TaskSet: 'TS1', Scene: 'road'}},
