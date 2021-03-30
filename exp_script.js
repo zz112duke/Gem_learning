@@ -409,25 +409,14 @@ var FR_Q1 = {
 timeline.push(FR_Q1);
 
 
-var conf_options = ["not confident at all", "slightly confident", "somewhat confident", "fairly confident", "very confident"];
-var multi_choice_Q1 = {
-    type: 'survey-multi-choice',
-    button_label: 'Next',
-    preamble: '',
-    questions: [
-        { prompt: "On a scale of 1-5, how confident are you in your answer to the last question?", name: 'Q1', options: conf_options, required: true, horizontal: false },
-    ],
-};
-//timeline.push(multi_choice_Q1);
-
 var confidence = {
     type: 'html-slider-response',
     stimulus: '<p>On a scale of 1-5, how confident are you in your answer to the last question?</p>',
-    labels: ['Not confident', 'Confident'],
-    min: 1,
+    labels: ['Not confident', '1','2','3','4','Confident'],
+    min: 0,
     max: 5,
     slider_start: 3,
-    prompt: "<p>How healthy/unhealthy is this activity?</p>"
+    //prompt: "<p>How healthy/unhealthy is this activity?</p>"
 };
 timeline.push(confidence);
 
