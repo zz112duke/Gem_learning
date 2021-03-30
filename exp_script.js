@@ -271,6 +271,8 @@ var learning = {
   response_ends_trial: true,
   on_finish: function(data){
     data.correct = data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response);
+    var counter = jsPsych.data.get().filter({TaskType: 'at'}).select('rt').values.length;
+    data.counter = counter;
   }
 }
 
@@ -299,7 +301,7 @@ var learning_trial = {
     }
 };
 
-timeline.push(learning_trial)
+//timeline.push(learning_trial)
 
 
 /* -----Attention Bonus Check----- */
@@ -380,16 +382,6 @@ var FR_Q3 = {
 timeline.push(FR_Q3);
 
 timeline.push(multi_choice_Q1);
-
-
-var FR_Q4 = {
-    type: 'survey-html-form',
-    preamble: '<p> Now, we will ask you to pick between different options to see how you learned the rules of the game. </p>',
-    html: '<p>  What determined the correct response to a gem when you were on the mountain? If you do not know for sure, please make your best guess.  <input name="first" type="text" /> </p> ',
-    autofocus: 'test-resp-box',
-    required: true
-};
-timeline.push(FR_Q4);
 
 
 var Q3P1_options = ["The color of the gems", "The shape of the gems"];
