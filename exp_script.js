@@ -412,7 +412,7 @@ timeline.push(multi_choice_Q0);
 var FR_Q1 = {
     type: 'survey-text',
     questions: [
-    {prompt: '<p> When you were playing the game, what determined the correct response to a gem? <br> Please describe in as much detail as you can. <br> If you are not sure, please share your best guess.</p>', name: FR_Q1},
+    {prompt: '<p> When you were playing the game, what determined the correct response to a gem? <br> Please describe in as much detail as you can. <br> If you are not sure, please share your best guess.</p>', name: FR_Q1, rows: 8, columns: 40},
   ],
 };
 timeline.push(FR_Q1);
