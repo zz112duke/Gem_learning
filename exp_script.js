@@ -388,15 +388,6 @@ var attention_bonus_check = {
 
 
 /* -----Payment Inclusion----- */
-var payment_inc = {
-    type: 'survey-html-form',
-    preamble: '<p> You have finished the Gemstone Expedition! Please answer a few questions about the rules of the game. </p>',
-    html: '<p> The four possible correct response keys are <input name="first" type="text" /> <input name="second" type="text" /> <input name="third" type="text" /> <input name="fourth" type="text" />. </p> ',
-    autofocus: 'test-resp-box',
-    required: true
-};
-//timeline.push(payment_inc);
-
 var Q0_options = ['1 and 2', '3 and 4','All of the above'];
 var multi_choice_Q0 = {
     type: 'survey-multi-choice',
@@ -427,8 +418,18 @@ var multi_choice_Q1 = {
         { prompt: "On a scale of 1-5, how confident are you in your answer to the last question?", name: 'Q1', options: conf_options, required: true, horizontal: false },
     ],
 };
-timeline.push(multi_choice_Q1);
+//timeline.push(multi_choice_Q1);
 
+var confidence = {
+    type: 'html-slider-response',
+    stimulus: '<p>On a scale of 1-5, how confident are you in your answer to the last question?</p>',
+    labels: ['Not confident', 'Confident'],
+    min: 1,
+    max: 5,
+    slider_start: 3,
+    prompt: "<p>How healthy/unhealthy is this activity?</p>"
+};
+timeline.push(confidence);
 
 var yn_options = ["Definitely No","Maybe No", "Maybe Yes", "Definitely Yes"];
 var multi_choice_Q2 = {
