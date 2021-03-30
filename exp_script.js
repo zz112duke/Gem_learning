@@ -403,18 +403,17 @@ var multi_choice_Q0 = {
     button_label: 'Next',
     preamble: '<p> You have finished the Gemstone Expedition! <br> Please answer a few questions about the rules of the game. </p>',
     questions: [
-        { prompt: '<p> The possible correct response keys are <br> 1. Up <br> 2. Down <br> 3. Left <br> 4. Right <br> </p>', name: 'Q0', options: Q0_options, required: true, horizontal: false },
+        { prompt: '<p> The possible correct response keys are <br> 1. Up <br> 2. Down <br> 3. Left <br> 4. Right </p>', name: 'Q0', options: Q0_options, required: true, horizontal: false },
     ],
 };
 timeline.push(multi_choice_Q0);
 
 /* -----A Few Q on Rules----- */
 var FR_Q1 = {
-    type: 'survey-html-form',
-    preamble: '',
-    html: '<p> When you were playing the game, what determined the correct response to a gem? <br> Please describe in as much detail as you can. If you are not sure, please share your best guess.  <input name="first" type="text" /> </p> ',
-    autofocus: 'test-resp-box',
-    required: true
+    type: 'survey-text',
+    questions: [
+    {prompt: '<p> When you were playing the game, what determined the correct response to a gem? <br> Please describe in as much detail as you can. <br> If you are not sure, please share your best guess.</p>', name: FR_Q1},
+  ],
 };
 timeline.push(FR_Q1);
 
