@@ -412,7 +412,7 @@ timeline.push(multi_choice_Q0);
 var FR_Q1 = {
     type: 'survey-text',
     questions: [
-    {prompt: '<p> When you were playing the game, what determined the correct response to a gem? <br> Please describe in as much detail as you can. <br> If you are not sure, please share your best guess.</p>', name: FR_Q1, rows: 8, columns: 40},
+    {prompt: '<p> When you were playing the game, what determined the correct response to a gem? <br> Please describe in as much detail as you can. <br> If you are not sure, please share your best guess.</p>', name: FR_Q1, rows: 5, columns: 80},
   ],
 };
 timeline.push(FR_Q1);
@@ -443,10 +443,11 @@ timeline.push(multi_choice_Q2);
 
 
 var FR_Q2 = {
-    type: 'survey-html-form',
+    type: 'survey-text',
     preamble: '<p> Please answer a few questions regarding the rules of the game. </p>',
-    html: '<p> What determined the correct response to a gem when you were on the mountain? Please describe in as much detail as you can. If you are not sure, please share your best guess.  <input name="first" type="text" /> </p> ',
-    autofocus: 'test-resp-box',
+    questions: [
+        { prompt: '<p> What determined the correct response to a gem when you were on the mountain? <br> Please describe in as much detail as you can. <br> If you are not sure, please share your best guess. </p> ',name: FR_Q2, rows: 5, columns: 80}
+    ],
     required: true
 };
 timeline.push(FR_Q2);
@@ -454,10 +455,11 @@ timeline.push(FR_Q2);
 timeline.push(multi_choice_Q1);
 
 var FR_Q3 = {
-    type: 'survey-html-form',
+    type: 'survey-text',
     preamble: '<p> Please answer a few questions regarding the rules of the game. </p>',
-    html: '<p> What determined the correct response to a gem when you were on the road? Please describe in as much detail as you can. If you are not sure, please share your best guess.  <input name="first" type="text" /> </p> ',
-    autofocus: 'test-resp-box',
+    questions: [
+        { prompt:  '<p> What determined the correct response to a gem when you were on the road? <br> Please describe in as much detail as you can. <br> If you are not sure, please share your best guess.</p> ',name: FR_Q3, rows: 5, columns: 80 }
+    ],
     required: true
 };
 timeline.push(FR_Q3);
