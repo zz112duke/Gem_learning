@@ -46,7 +46,7 @@ var instr_1 = {
   url: repo_site + "content/instr_1.html",
   cont_btn: 'next',
 };
-timeline.push(instr_1);
+//timeline.push(instr_1);
 
 var iti_1000 = {
   type: "image-keyboard-response",
@@ -70,13 +70,23 @@ repo_site + 'img/Stim/TS222.png', repo_site + 'img/Stim/TS223.png', repo_site + 
 repo_site +'img/Stim/TS231.png', repo_site + 'img/Stim/TS232.png', repo_site + 'img/Stim/TS233.png',
 repo_site +'img/Stim/fixation.png', repo_site + 'img/Stim/correct.png', repo_site + 'img/Stim/incorrect.png']
 
+/* -----Instructions----- */
+var instruction = {
+    type: 'instructions',
+    pages: [
+        '<p style="color:black;font-size:26px"> Welcome to the Gemstone Expedition! <br> <br> In this game, you are training to become a gemologist—an expert in gemstones. <br> <br> During the game, you will discover beautiful gemstones, like these: <br> </p>',
+        'Here is a picture of what you will do: <img src="https://zz112duke.github.io/Gem_learning/img/Stim/gem01.png" />'
+    ],
+    show_clickable_nav: true,
+}
+timeline.push(instruction);
 
 var instr_2 = {
     type: 'external-html',
     url: repo_site + "content/instr_2.html",
     cont_btn: 'next',
 };
-timeline.push(instr_2);
+//timeline.push(instr_2);
 
 
 var instr_3 = {
@@ -84,21 +94,21 @@ var instr_3 = {
     url: repo_site + "content/instr_3.html",
     cont_btn: 'next',
 };
-timeline.push(instr_3);
+//timeline.push(instr_3);
 
 var instr_4 = {
     type: 'external-html',
     url: repo_site + "content/instr_4.html",
     cont_btn: 'next',
 };
-timeline.push(instr_4);
+//timeline.push(instr_4);
 
 var instr_5 = {
     type: 'external-html',
     url: repo_site + "content/instr_5.html",
     cont_btn: 'next',
 };
-timeline.push(instr_5);
+//timeline.push(instr_5);
 
 /* -----define learning stimuli----- */
 var lr_stimuli_TS1 = [//if based on color; warm left cold right; if based on shape; round up square down
@@ -326,7 +336,7 @@ var payment_inc = {
 };
 timeline.push(payment_inc);
 
-/* A Few Q on Rules */
+/* -----A Few Q on Rules----- */
 var FR_Q1 = {
     type: 'survey-html-form',
     preamble: '',
