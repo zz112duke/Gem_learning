@@ -387,7 +387,6 @@ var attention_bonus_check = {
 //timeline.push(attention_bonus_check); interleave this?
 
 
-
 /* -----Payment Inclusion----- */
 var payment_inc = {
     type: 'survey-html-form',
@@ -396,7 +395,18 @@ var payment_inc = {
     autofocus: 'test-resp-box',
     required: true
 };
-timeline.push(payment_inc);
+//timeline.push(payment_inc);
+
+var Q0_options = ['1 and 2', '3 and 4','All of the above'];
+var multi_choice_Q0 = {
+    type: 'survey-multi-choice',
+    button_label: 'Next',
+    preamble: '<p> You have finished the Gemstone Expedition! <br> Please answer a few questions about the rules of the game. </p>',
+    questions: [
+        { prompt: '<p> The possible correct response keys are <br> 1. Up <br> 2. Down <br> 3. Left <br> 4. Right <br> </p>', name: 'Q0', options: Q0_options, required: true, horizontal: false },
+    ],
+};
+timeline.push(multi_choice_Q0);
 
 /* -----A Few Q on Rules----- */
 var FR_Q1 = {
