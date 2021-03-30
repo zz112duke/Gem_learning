@@ -40,14 +40,7 @@ var consent = {
 };
 timeline.push(consent);
 
-
-var instr_1 = {
-  type: 'external-html',
-  url: repo_site + "content/instr_1.html",
-  cont_btn: 'next',
-};
-//timeline.push(instr_1);
-
+/* -----ITI----- */
 var iti_1000 = {
   type: "image-keyboard-response",
   stimulus: repo_site + "img/Stim/fixation.png",
@@ -56,7 +49,7 @@ var iti_1000 = {
   trial_duration: Math.random() * (1500 - 1000) + 1000  //jittered from 1000-1500ms
 }
 
-
+/* -----Preload Images----- */
 preload_list = [repo_site + 'img/Stim/TS100.png', repo_site + 'img/Stim/TS101.png', repo_site + 'img/Stim/TS102.png',
 repo_site +'img/Stim/TS103.png', repo_site + 'img/Stim/TS110.png', repo_site + 'img/Stim/TS111.png',
 repo_site + 'img/Stim/TS112.png', repo_site + 'img/Stim/TS113.png', repo_site + 'img/Stim/TS120.png',
@@ -74,7 +67,31 @@ repo_site +'img/Stim/fixation.png', repo_site + 'img/Stim/correct.png', repo_sit
 var instruction = {
     type: 'instructions',
     pages: [
-        '<p style="color:black;font-size:26px"> Welcome to the Gemstone Expedition! <br> <br> In this game, you are training to become a gemologist—an expert in gemstones. <br> <br> During the game, you will discover beautiful gemstones, like these: <br> </p> <br> <p> <img src="https://zz112duke.github.io/Gem_learning/img/Stim/gem01.png" /> <img src="https://zz112duke.github.io/Gem_learning/img/Stim/gem02.png" /> <img src="https://zz112duke.github.io/Gem_learning/img/Stim/gem03.png" /> <img src="https://zz112duke.github.io/Gem_learning/img/Stim/gem04.png" /> </p> <br> <p style="color:black;font-size:26px"> When you find a gem, your job is to identify where the gem came from <br> by pressing a button on your keyboard. <br> <br> For each gem whose origin you indicate correctly, you earn a gold star! <br>You do not earn a gold star for incorrectly identified gems. <br> </p>',
+        /* -----instr_1----- */
+        '<p style="color:black;font-size:26px">\n' +
+        '        Welcome to the Gemstone Expedition! <br>\n' +
+        '        <br>\n' +
+        '        In this game, you are training to become a gemologist—an expert in gemstones. <br>\n' +
+        '        <br>\n' +
+        '        During the game, you will discover beautiful gemstones, like these: <br>\n' +
+        '    </p>\n' +
+        '        <br>\n' +
+        '    <p>\n' +
+        '       <img src="https://zz112duke.github.io/Gem_learning/img/Stim/gem01.png" /> <img src="https://zz112duke.github.io/Gem_learning/img/Stim/gem02.png" />\n' +
+        '       <img src="https://zz112duke.github.io/Gem_learning/img/Stim/gem03.png" /> <img src="https://zz112duke.github.io/Gem_learning/img/Stim/gem04.png" />\n' +
+        '\n' +
+        '    </p>\n' +
+        '        <br>\n' +
+        '    <p style="color:black;font-size:26px">\n' +
+        '        When you find a gem, your job is to identify where the gem came from <br>\n' +
+        '        by pressing a button on your keyboard. <br>\n' +
+        '        <br>\n' +
+        '        For each gem whose origin you indicate correctly, you earn a gold star! <br>\n' +
+        '        You do not earn a gold star for incorrectly identified gems. <br>\n' +
+        '\n' +
+        '    </p>',
+
+        /* -----instr_2----- */
         '<p style="color:black;font-size:26px">\n' +
         '    Your gemology training will take place in two different locations: <br>\n' +
         '    a faraway mountain and a deserted road, like this:\n' +
@@ -94,6 +111,7 @@ var instruction = {
         '        or the right side of the road by pressing the <span style="font-size: 26px"><b><kbd>Right</kbd></b></span> arrow key on the keyboard. <br>\n' +
         '</p>',
 
+        /* -----instr_3----- */
         '<p style="color:black;font-size: 26px">\n' +
         '    Notice that the gemstones come in different cuts: <br>\n' +
         '    straight-edged (square and rounded square) and round (circle and oval) <br>\n' +
@@ -114,6 +132,7 @@ var instruction = {
         '    This information may be helpful for figuring out where the gems came from.<br>\n' +
         '</p>',
 
+        /* -----instr_4----- */
         '<p style="color:black;font-size: 26px">\n' +
         '    Because you are still a gemologist-in-training,  <br>\n' +
         '    you will have to learn where the gems came from. <br>\n' +
@@ -131,6 +150,7 @@ var instruction = {
         '    <br>\n' +
         '    <img src="https://zz112duke.github.io/Gem_learning/img/Stim/correct.png" /> <img src="https://zz112duke.github.io/Gem_learning/img/Stim/incorrect.png" />',
 
+        /* -----instr_5----- */
         '<p style="color:black;font-size:26px">\n' +
         '\n' +
         '    Every time you see a gem, please respond as quickly and accurately as you can. <br>\n' +
@@ -143,43 +163,14 @@ var instruction = {
         '<p style="color:black;font-size: 26px">\n' +
         '        Please DO NOT quit or refresh the webpage. <br>\n' +
         '        Unfortunately, we are unable to accept your HIT if you exited out of the page or refreshed it.<br>\n' +
-        '        Now, click on "Start Experiment" to start the main experiment.\n' +
-        '        <br>\n' +
+        '        Now, click on "Start Experiment" to start the main experiment.<br>\n' +
         '        Happy exploring!\n' +
-        '</p>'
+        '</p> <br>'
     ],
     show_clickable_nav: true,
 }
 timeline.push(instruction);
 
-var instr_2 = {
-    type: 'external-html',
-    url: repo_site + "content/instr_2.html",
-    cont_btn: 'next',
-};
-//timeline.push(instr_2);
-
-
-var instr_3 = {
-    type: 'external-html',
-    url: repo_site + "content/instr_3.html",
-    cont_btn: 'next',
-};
-//timeline.push(instr_3);
-
-var instr_4 = {
-    type: 'external-html',
-    url: repo_site + "content/instr_4.html",
-    cont_btn: 'next',
-};
-//timeline.push(instr_4);
-
-var instr_5 = {
-    type: 'external-html',
-    url: repo_site + "content/instr_5.html",
-    cont_btn: 'next',
-};
-//timeline.push(instr_5);
 
 /* -----define learning stimuli----- */
 var lr_stimuli_TS1 = [//if based on color; warm left cold right; if based on shape; round up square down
