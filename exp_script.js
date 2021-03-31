@@ -165,7 +165,7 @@ var instruction = {
         '<p style="color:black;font-size: 26px">\n' +
         '        Please DO NOT quit or refresh the webpage. <br>\n' +
         '        Unfortunately, we are unable to accept your HIT if you exit out of the page or refresh it.<br>\n' +
-        '        Now, click on "Next" to start the main experiment.\n' +
+        '        Now, click on "Next" to start the main experiment. <br> \n' +
         '        <br> Happy exploring!\n' +
         '</p> <br>'
     ],
@@ -374,7 +374,7 @@ var learning_trial = {
         size: 4, // 4 repetitions of each trial, 128 total trials, order is randomized.
     }
 };
-//timeline.push(learning_trial)
+timeline.push(learning_trial)
 
 
 /* -----Attention Bonus Check----- */
