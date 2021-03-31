@@ -86,7 +86,7 @@ var instruction = {
         '        When you find a gem, your job is to identify where the gem came from <br>\n' +
         '        by pressing a button on your keyboard. <br>\n' +
         '        <br>\n' +
-        '        For each gem whose origin you indicate correctly, you earn a gold star! <br>\n' +
+        '        If you correctly identify where the gem came from, you earn a gold star! <br>\n' +
         '        You do not earn a gold star for incorrectly identified gems. <br>\n' +
         '\n' +
         '    </p>',
@@ -114,7 +114,7 @@ var instruction = {
         /* -----instr_3----- */
         '<p style="color:black;font-size: 26px">\n' +
         '    Notice that the gemstones come in different cuts: <br>\n' +
-        '    straight-edged (square and rounded square) and round (circle and oval) <br>\n' +
+        '    straight-edged (square and rounded square) and round (circle and oval). <br>\n' +
         '    <br>\n' +
         '    They also come in different colors: <br>\n' +
         '    warm-toned colors (yellow and orange) and cool-toned colors (light blue and dark blue). <br>\n' +
@@ -162,9 +162,9 @@ var instruction = {
         '<br>\n' +
         '<p style="color:black;font-size: 26px">\n' +
         '        Please DO NOT quit or refresh the webpage. <br>\n' +
-        '        Unfortunately, we are unable to accept your HIT if you exited out of the page or refreshed it.<br>\n' +
-        '        Now, click on "Start Experiment" to start the main experiment.<br>\n' +
-        '        Happy exploring!\n' +
+        '        Unfortunately, we are unable to accept your HIT if you exit out of the page or refresh it.<br>\n' +
+        '        Now, click on "Next" to start the main experiment.\n' +
+        '        <br> Happy exploring!\n' +
         '</p> <br>'
     ],
     show_clickable_nav: true,
