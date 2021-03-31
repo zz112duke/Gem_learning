@@ -411,16 +411,15 @@ timeline.push(FR_Q1);
 
 var confidence = {
     type: 'html-slider-response',
-    stimulus: '<p>On a scale of 1-5, how confident are you in your answer to the last question?</p>',
-    labels: ['Not confident', '1','2','3','4','Confident'],
+    stimulus: '<p>On a scale of 1-5, how confident are you in your answer to the last question? <br> Adjust the slider bar to indicate your answer.</p>',
+    labels: ['Not confident 0', '1','2','3','4','Confident 5'],
     min: 0,
     max: 5,
     slider_start: 3,
-    //prompt: "<p>How healthy/unhealthy is this activity?</p>"
 };
 timeline.push(confidence);
 
-var yn_options = ["Definitely No","Maybe No", "Maybe Yes", "Definitely Yes"];
+var yn_options = ["Definitely Yes","Maybe Yes","Maybe No","Definitely No" ];
 var multi_choice_Q2 = {
     type: 'survey-multi-choice',
     button_label: 'Next',
@@ -442,7 +441,7 @@ var FR_Q2 = {
 };
 timeline.push(FR_Q2);
 
-timeline.push(multi_choice_Q1);
+timeline.push(confidence);
 
 var FR_Q3 = {
     type: 'survey-text',
@@ -454,7 +453,7 @@ var FR_Q3 = {
 };
 timeline.push(FR_Q3);
 
-timeline.push(multi_choice_Q1);
+timeline.push(confidence);
 
 
 var Q3P1_options = ["The color of the gems", "The shape of the gems"];
@@ -464,10 +463,11 @@ var multi_choice_Q3 = {
     preamble: 'Now, we will ask you to pick between different options to see how you learned the rules of the game.',
     questions: [
         { prompt: "What determined the correct response to a gem when you were on the mountain? If you do not know for sure, please make your best guess.", name: 'Q3P1', options: Q3P1_options, required: true },
-        { prompt: "On a scale of 1-5, how confident are you in your choice?", name: 'Q3P2', options: conf_options, required: true },
+        //{ prompt: "On a scale of 1-5, how confident are you in your choice?", name: 'Q3P2', options: conf_options, required: true },
     ],
 };
 timeline.push(multi_choice_Q3);
+timeline.push(confidence);
 
 var multi_choice_Q4 = {
     type: 'survey-multi-choice',
@@ -475,10 +475,11 @@ var multi_choice_Q4 = {
     preamble: 'Now, we will ask you to pick between different options to see how you learned the rules of the game.',
     questions: [
         { prompt: "What determined the correct response to a gem when you were on the road? If you do not know for sure, please make your best guess.", name: 'Q4P1', options: Q3P1_options, required: true },
-        { prompt: "On a scale of 1-5, how confident are you in your choice?", name: 'Q4P2', options: conf_options, required: true },
+        //{ prompt: "On a scale of 1-5, how confident are you in your choice?", name: 'Q4P2', options: conf_options, required: true },
     ],
 };
 timeline.push(multi_choice_Q4);
+timeline.push(confidence);
 
 var feature = lr_feature_list[feature_index];
 console.log(feature)
@@ -501,10 +502,11 @@ var multi_choice_Q5 = {
     preamble: '',
     questions: [
         { prompt: "What were the rules of the game when you were on the road? If you do not know for sure, please make your best guess.", name: 'Q5P1', options: Q5P1_options, required: true },
-        { prompt: "On a scale of 1-5, how confident are you in your choice?", name: 'Q5P2', options: conf_options, required: true },
+        //{ prompt: "On a scale of 1-5, how confident are you in your choice?", name: 'Q5P2', options: conf_options, required: true },
     ],
 };
 timeline.push(multi_choice_Q5);
+timeline.push(confidence);
 
 var multi_choice_Q6 = {
     type: 'survey-multi-choice',
@@ -512,10 +514,11 @@ var multi_choice_Q6 = {
     preamble: '',
     questions: [
         { prompt: "What were the rules of the game when you were on the mountain? If you do not know for sure, please make your best guess.", name: 'Q6P1', options: Q6P1_options, required: true },
-        { prompt: "On a scale of 1-5, how confident are you in your choice?", name: 'Q6P2', options: conf_options, required: true },
+        //{ prompt: "On a scale of 1-5, how confident are you in your choice?", name: 'Q6P2', options: conf_options, required: true },
     ],
 };
 timeline.push(multi_choice_Q6);
+timeline.push(confidence);
 
 /* -----Demographics----- */
 var DemoQ1_options = ["Male", "Female", "Gender Non-conforming", "Other", "Choose not to respond"];
