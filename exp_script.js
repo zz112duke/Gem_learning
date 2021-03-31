@@ -374,7 +374,7 @@ var learning_trial = {
         size: 4, // 4 repetitions of each trial, 128 total trials, order is randomized.
     }
 };
-timeline.push(learning_trial)
+//timeline.push(learning_trial)
 
 
 /* -----Attention Bonus Check----- */
@@ -420,13 +420,13 @@ var confidence = {
 };
 timeline.push(confidence);
 
-var yn_options = ["Definitely Yes","Maybe Yes","Maybe No","Definitely No" ];
+var yn_options = ["Definitely No","Maybe No","Maybe Yes","Definitely Yes" ];
 var multi_choice_Q2 = {
     type: 'survey-multi-choice',
     button_label: 'Next',
     preamble: 'Please answer a few questions regarding the rules of the game.',
     questions: [
-        { prompt: "Did the same thing determine the correct response to each gem on the mountain and the road?", name: 'Q2', options: yn_options, required: true, horizontal: false },
+        { prompt: "<p> Did the same thing determine the correct response to each gem on the mountain and the road? <br> </p>", name: 'Q2', options: yn_options, required: true, horizontal: false },
     ],
 };
 timeline.push(multi_choice_Q2);
