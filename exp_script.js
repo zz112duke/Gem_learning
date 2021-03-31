@@ -372,8 +372,7 @@ var learning_trial = {
         size: 4, // 4 repetitions of each trial, 128 total trials, order is randomized.
     }
 };
-
-//timeline.push(learning_trial)
+timeline.push(learning_trial)
 
 
 /* -----Attention Bonus Check----- */
@@ -462,7 +461,7 @@ var multi_choice_Q3 = {
     button_label: 'Next',
     preamble: 'Now, we will ask you to pick between different options to see how you learned the rules of the game.',
     questions: [
-        { prompt: "What determined the correct response to a gem when you were on the mountain? If you do not know for sure, please make your best guess.", name: 'Q3P1', options: Q3P1_options, required: true },
+        { prompt: "<p> What determined the correct response to a gem when you were on the mountain? <br> If you do not know for sure, please make your best guess.</p>", name: 'Q3P1', options: Q3P1_options, required: true },
         //{ prompt: "On a scale of 1-5, how confident are you in your choice?", name: 'Q3P2', options: conf_options, required: true },
     ],
 };
@@ -474,7 +473,7 @@ var multi_choice_Q4 = {
     button_label: 'Next',
     preamble: 'Now, we will ask you to pick between different options to see how you learned the rules of the game.',
     questions: [
-        { prompt: "What determined the correct response to a gem when you were on the road? If you do not know for sure, please make your best guess.", name: 'Q4P1', options: Q3P1_options, required: true },
+        { prompt: "<p>What determined the correct response to a gem when you were on the road? <br> If you do not know for sure, please make your best guess.</p>", name: 'Q4P1', options: Q3P1_options, required: true },
         //{ prompt: "On a scale of 1-5, how confident are you in your choice?", name: 'Q4P2', options: conf_options, required: true },
     ],
 };
@@ -501,7 +500,7 @@ var multi_choice_Q5 = {
     button_label: 'Next',
     preamble: '',
     questions: [
-        { prompt: "What were the rules of the game when you were on the road? If you do not know for sure, please make your best guess.", name: 'Q5P1', options: Q5P1_options, required: true },
+        { prompt: "<p> What were the rules of the game when you were on the road? <br> If you do not know for sure, please make your best guess.</p>", name: 'Q5P1', options: Q5P1_options, required: true },
         //{ prompt: "On a scale of 1-5, how confident are you in your choice?", name: 'Q5P2', options: conf_options, required: true },
     ],
 };
@@ -513,7 +512,7 @@ var multi_choice_Q6 = {
     button_label: 'Next',
     preamble: '',
     questions: [
-        { prompt: "What were the rules of the game when you were on the mountain? If you do not know for sure, please make your best guess.", name: 'Q6P1', options: Q6P1_options, required: true },
+        { prompt: "<p>What were the rules of the game when you were on the mountain? <br> If you do not know for sure, please make your best guess.</p>", name: 'Q6P1', options: Q6P1_options, required: true },
         //{ prompt: "On a scale of 1-5, how confident are you in your choice?", name: 'Q6P2', options: conf_options, required: true },
     ],
 };
