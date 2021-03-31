@@ -61,7 +61,9 @@ repo_site + 'img/Stim/TS210.png', repo_site + 'img/Stim/TS211.png', repo_site + 
 repo_site + 'img/Stim/TS213.png', repo_site + 'img/Stim/TS220.png', repo_site + 'img/Stim/TS221.png',
 repo_site + 'img/Stim/TS222.png', repo_site + 'img/Stim/TS223.png', repo_site + 'img/Stim/TS230.png',
 repo_site +'img/Stim/TS231.png', repo_site + 'img/Stim/TS232.png', repo_site + 'img/Stim/TS233.png',
-repo_site +'img/Stim/fixation.png', repo_site + 'img/Stim/correct.png', repo_site + 'img/Stim/incorrect.png']
+repo_site +'img/Stim/fixation.png', repo_site + 'img/Stim/correct.png', repo_site + 'img/Stim/incorrect.png',
+repo_site + 'img/Stim/correct_ex.png', repo_site + 'img/Stim/incorrect_ex.png', repo_site + 'img/Stim/TS232_ex.png',
+repo_site + 'img/Stim/TS110_ex.png']
 
 /* -----Instructions----- */
 var instruction = {
@@ -97,7 +99,7 @@ var instruction = {
         '    a faraway mountain and a deserted road, like this:\n' +
         '</p>\n' +
         '<br>\n' +
-        '     <img src="https://zz112duke.github.io/Gem_learning/img/Stim/TS232.png" /> <img src="https://zz112duke.github.io/Gem_learning/img/Stim/TS110.png" />\n' +
+        '     <img src="https://zz112duke.github.io/Gem_learning/img/Stim/TS232_ex.png" /> <img src="https://zz112duke.github.io/Gem_learning/img/Stim/TS110_ex.png" />\n' +
         '<br>\n' +
         '\n' +
         '<p style="color:black;font-size:26px">\n' +
@@ -148,7 +150,7 @@ var instruction = {
         '    A gold star indicates a correct response, and a red X indicates an incorrect response, like this:\n' +
         '    </p>\n' +
         '    <br>\n' +
-        '    <img src="https://zz112duke.github.io/Gem_learning/img/Stim/correct.png" /> <img src="https://zz112duke.github.io/Gem_learning/img/Stim/incorrect.png" />',
+        '    <img src="https://zz112duke.github.io/Gem_learning/img/Stim/correct_ex.png" /> <img src="https://zz112duke.github.io/Gem_learning/img/Stim/incorrect_ex.png" />',
 
         /* -----instr_5----- */
         '<p style="color:black;font-size:26px">\n' +
