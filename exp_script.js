@@ -144,7 +144,7 @@ var instruction = {
         '    <span style="font-size: 26px"><b><kbd>Up</kbd></b></span> or <span style="font-size: 26px"><b><kbd>Down</kbd></b></span> on the mountain, <br>\n' +
         '    and <span style="font-size: 26px"><b><kbd>Left</kbd></b></span> or <span style="font-size: 26px"><b><kbd>Right</kbd></b></span> on the road.<br>\n' +
         '    <br>\n' +
-        '    You will learn where the different gems came from <br>\n' +
+        '    You will learn where different types of gems come from <br>\n' +
         '    based on the feedback you receive after each response. <br>\n' +
         '    <br>\n' +
         '    A gold star indicates a correct response, and a red X indicates an incorrect response, like this:\n' +
@@ -345,7 +345,7 @@ var learning = {
   response_ends_trial: true,
   on_finish: function(data){
     data.correct = data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response);
-    var counter = jsPsych.data.get().filter({TaskType: 'at'}).select('rt').values.length;
+    var counter = jsPsych.data.get().filter({TaskType: 'lr'}).select('rt').values.length;
     data.counter = counter;
   }
 }
