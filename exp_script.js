@@ -38,7 +38,7 @@ var consent = {
   cont_fn: check_consent,
   cont_btn: 'start',
 };
-timeline.push(consent);
+//timeline.push(consent);
 
 /* -----ITI----- */
 var iti_1000 = {
@@ -171,7 +171,7 @@ var instruction = {
     ],
     show_clickable_nav: true,
 }
-timeline.push(instruction);
+//timeline.push(instruction);
 
 
 /* -----define learning stimuli----- */
@@ -406,6 +406,7 @@ var FR_Q1 = {
     questions: [
     {prompt: '<p> When you were playing the game, what determined the correct response to a gem? <br> Please describe in as much detail as you can. <br> If you are not sure, please share your best guess.</p>', name: FR_Q1, rows: 5, columns: 80},
   ],
+    required: true
 };
 timeline.push(FR_Q1);
 
