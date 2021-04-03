@@ -229,35 +229,35 @@ for (i = 0; i < lr_stimuli_TS1.length; i++) {
     if (ob.data.feature == 'color') //If current feature is color
     {
 
-    //If current feature is color then check the second digit; 0,1 is warm --> left, 2,3 is cold --> right.
-        if (ob.lr_stimulus.charAt(53) == 0 || ob.lr_stimulus.charAt(53) == 1) //If sceond digit is 0,1 --> warm --> left
+    //If current feature is color then check the second digit; e.g. 0,1 is warm --> left, 2,3 is cold --> right.
+        if (ob.lr_stimulus.charAt(53) == 0 || ob.lr_stimulus.charAt(53) == 1) //e.g. If sceond digit is 0,1 --> warm --> left
         {
             ob.data.correct_response = allowed_keys_road[road_key_index];
-            console.log(ob.data.correct_response)
+            //console.log(ob.data.correct_response)
         }
 
-        else //If sceond digit is 2,3 --> cold --> right
+        else //e.g. If sceond digit is 2,3 --> cold --> right
         {
             ob.data.correct_response = allowed_keys_road[1-road_key_index];
-            console.log(ob.data.correct_response)
+            //console.log(ob.data.correct_response)
         }
 
     }
 
     else //If current feature is shape
     {
-    //If current feature is shape then check the third digit; 0,1 is round --> left, 2,3 is edge --> right.
+    //If current feature is shape then check the third digit; e.g. 0,1 is round --> left, 2,3 is edge --> right.
 
-        if (ob.lr_stimulus.charAt(54) == 0 || ob.lr_stimulus.charAt(54) == 1) //If third digit is 0,1 --> round --> left
+        if (ob.lr_stimulus.charAt(54) == 0 || ob.lr_stimulus.charAt(54) == 1) //e.g. If third digit is 0,1 --> round --> left
         {
             ob.data.correct_response = allowed_keys_road[road_key_index];
-            console.log(ob.data.correct_response)
+            //console.log(ob.data.correct_response)
         }
 
-        else //If third digit is 2,3 --> edge --> right
+        else //e.g. If third digit is 2,3 --> edge --> right
         {
             ob.data.correct_response = allowed_keys_road[1-road_key_index];
-            console.log(ob.data.correct_response)
+            //console.log(ob.data.correct_response)
         }
 
     }
@@ -271,37 +271,37 @@ for (i = 0; i < lr_stimuli_TS2.length; i++) {
     if (ob.data.feature == 'color') //If current feature is color
     {
 
-    //If current feature is color then check the second digit; 0,1 is warm --> up, 2,3 is cold --> down.
-        if (ob.lr_stimulus.charAt(53) == 0 || ob.lr_stimulus.charAt(53) == 1) //If sceond digit is 0,1 --> warm --> up
+    //If current feature is color then check the second digit; e.g. 0,1 is warm --> up, 2,3 is cold --> down.
+        if (ob.lr_stimulus.charAt(53) == 0 || ob.lr_stimulus.charAt(53) == 1) //e.g. If sceond digit is 0,1 --> warm --> up
         {
             ob.data.correct_response = allowed_keys_mountain[mountain_key_index];
-            console.log(ob.data.correct_response)
+            //console.log(ob.data.correct_response)
         }
 
-        else //If sceond digit is 2,3 --> cold --> down
+        else //e.g. If sceond digit is 2,3 --> cold --> down
         {
             ob.data.correct_response = allowed_keys_mountain[1-mountain_key_index];
-            console.log(ob.data.correct_response)
+            //console.log(ob.data.correct_response)
         }
 
     }
 
     else //If current feature is shape
     {
-    //If current feature is shape then check the third digit; 0,1 is round --> up, 2,3 is edge --> down.
+    //If current feature is shape then check the third digit; e.g. 0,1 is round --> up, 2,3 is edge --> down.
 
-        if (ob.lr_stimulus.charAt(54) == 0 || ob.lr_stimulus.charAt(54) == 1) //If third digit is 0,1 --> round --> up
+        if (ob.lr_stimulus.charAt(54) == 0 || ob.lr_stimulus.charAt(54) == 1) //e.g. If third digit is 0,1 --> round --> up
         {
             //correct_response = up
             ob.data.correct_response = allowed_keys_mountain[mountain_key_index];
-            console.log(ob.data.correct_response)
+            //console.log(ob.data.correct_response)
         }
 
-        else //If third digit is 2,3 --> edge --> down
+        else //e.g. If third digit is 2,3 --> edge --> down
         {
             //correct_response = down
             ob.data.correct_response = allowed_keys_mountain[1-mountain_key_index];
-            console.log(ob.data.correct_response)
+            //console.log(ob.data.correct_response)
         }
 
     }
