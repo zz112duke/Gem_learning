@@ -300,7 +300,7 @@ for (i = 0; i < lr_stimuli_TS2.length; i++) {
         else //If third digit is 2,3 --> edge --> down
         {
             //correct_response = down
-            ob.data.correct_response = allowed_keys_mountain[mountain_key_index];
+            ob.data.correct_response = allowed_keys_mountain[1-mountain_key_index];
             console.log(ob.data.correct_response)
         }
 
