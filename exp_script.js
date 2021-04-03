@@ -502,19 +502,18 @@ console.log(feature)
 console.log(option1_road_key)
 console.log(option1_mountain_key)
 
-
 if (feature == 'color') //If current feature is color
     {
-        var Q5P1_options = ['<p>If the gem was warm-tones (yellow or orange), press + ${option1_road_key} +. If the gem was cool-toned (light or dark blue), press ${option2_road_key}.</p>',
-            '<p>If the gem was warm-tones (yellow or orange), press ${option2_road_key}. If the gem was cool-toned (light or dark blue), press ${option1_road_key}.</p>'];
-        var Q6P1_options =['<p>If the gem was round (circle or oval), press ${option1_mountain_key}. If the gem had straight edges (square or rounded square), press ${option2_mountain_key}.</p>',
-            '<p>If the gem was round (circle or oval), press ${option2_mountain_key}. If the gem had straight edges (square or rounded square), press ${option1_mountain_key}.</p>']
+        var Q5P1_options = [`If the gem was warm-tones (yellow or orange), press ${option1_road_key}. If the gem was cool-toned (light or dark blue), press ${option2_road_key}.`,
+            `If the gem was warm-tones (yellow or orange), press ${option2_road_key}. If the gem was cool-toned (light or dark blue), press ${option1_road_key}.`];
+        var Q6P1_options =[`If the gem was round (circle or oval), press +${option1_mountain_key}+. If the gem had straight edges (square or rounded square), press ${option2_mountain_key}.`,
+            `If the gem was round (circle or oval), press ${option2_mountain_key}. If the gem had straight edges (square or rounded square), press +${option1_mountain_key}+.`]
     }
 else {
-    var Q5P1_options =['<p>If the gem was round (circle or oval), press ${option1_road_key}. If the gem had straight edges (square or rounded square), press ${option2_road_key}.</p>',
-        '<p>If the gem was round (circle or oval), press ${option2_road_key}. If the gem had straight edges (square or rounded square), press ${option1_road_key}.</p>'];
-    var Q6P1_options = ['<p>If the gem was warm-tones (yellow or orange), press ${option1_mountain_key}. If the gem was cool-toned (light or dark blue), press ${option2_mountain_key}.</p>',
-        '<p>If the gem was warm-tones (yellow or orange), press ${option2_mountain_key}. If the gem was cool-toned (light or dark blue), press ${option1_mountain_key}.</p>'];
+    var Q5P1_options =[`If the gem was round (circle or oval), press ${option1_road_key}. If the gem had straight edges (square or rounded square), press ${option2_road_key}.`,
+        `If the gem was round (circle or oval), press ${option2_road_key}. If the gem had straight edges (square or rounded square), press ${option1_road_key}.`];
+    var Q6P1_options = [`If the gem was warm-tones (yellow or orange), press ${option1_mountain_key}. If the gem was cool-toned (light or dark blue), press ${option2_mountain_key}.`,
+        `If the gem was warm-tones (yellow or orange), press ${option2_mountain_key}. If the gem was cool-toned (light or dark blue), press ${option1_mountain_key}.`];
     };
 
 
