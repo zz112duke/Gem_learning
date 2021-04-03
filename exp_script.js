@@ -38,7 +38,7 @@ var consent = {
   cont_fn: check_consent,
   cont_btn: 'start',
 };
-//timeline.push(consent);
+timeline.push(consent);
 
 /* -----ITI----- */
 var iti_1000 = {
@@ -374,7 +374,7 @@ var learning_trial = {
         size: 4, // 4 repetitions of each trial, 128 total trials, order is randomized.
     }
 };
-timeline.push(learning_trial)
+//timeline.push(learning_trial)
 
 
 /* -----Attention Bonus Check----- */
