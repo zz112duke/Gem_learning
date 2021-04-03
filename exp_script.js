@@ -171,7 +171,7 @@ var instruction = {
     ],
     show_clickable_nav: true,
 }
-//timeline.push(instruction);
+timeline.push(instruction);
 
 
 /* -----define learning stimuli----- */
@@ -386,7 +386,7 @@ var learning_trial = {
         size: 4, // 4 repetitions of each trial, 128 total trials, order is randomized.
     }
 };
-//timeline.push(learning_trial)
+timeline.push(learning_trial)
 
 
 /* -----Attention Bonus Check----- */
@@ -506,8 +506,8 @@ if (feature == 'color') //If current feature is color
     {
         var Q5P1_options = [`If the gem was warm-tones (yellow or orange), press ${option1_road_key}. If the gem was cool-toned (light or dark blue), press ${option2_road_key}.`,
             `If the gem was warm-tones (yellow or orange), press ${option2_road_key}. If the gem was cool-toned (light or dark blue), press ${option1_road_key}.`];
-        var Q6P1_options =[`If the gem was round (circle or oval), press +${option1_mountain_key}+. If the gem had straight edges (square or rounded square), press ${option2_mountain_key}.`,
-            `If the gem was round (circle or oval), press ${option2_mountain_key}. If the gem had straight edges (square or rounded square), press +${option1_mountain_key}+.`]
+        var Q6P1_options =[`If the gem was round (circle or oval), press ${option1_mountain_key}. If the gem had straight edges (square or rounded square), press ${option2_mountain_key}.`,
+            `If the gem was round (circle or oval), press ${option2_mountain_key}. If the gem had straight edges (square or rounded square), press ${option1_mountain_key}.`]
     }
 else {
     var Q5P1_options =[`If the gem was round (circle or oval), press ${option1_road_key}. If the gem had straight edges (square or rounded square), press ${option2_road_key}.`,
