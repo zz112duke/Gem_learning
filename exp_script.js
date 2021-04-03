@@ -171,7 +171,7 @@ var instruction = {
     ],
     show_clickable_nav: true,
 }
-//timeline.push(instruction);
+timeline.push(instruction);
 
 
 /* -----define learning stimuli----- */
@@ -374,7 +374,7 @@ var learning_trial = {
         size: 4, // 4 repetitions of each trial, 128 total trials, order is randomized.
     }
 };
-//timeline.push(learning_trial)
+timeline.push(learning_trial)
 
 
 /* -----Attention Bonus Check----- */
