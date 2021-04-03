@@ -215,12 +215,16 @@ var lr_stimuli_TS2 = [//if based on color; warm left cold right; if based on sha
 
 /* -----randomize scene-feature pair----- */
 var lr_feature_list = ['color', 'shape'];
-var feature_index = Math.floor((Math.random()) * lr_feature_list.length)
+var allowed_keys_road = ['leftarrow','rightarrow'];
+var allowed_keys_mountain = ['uparrow','downarrow'];
+var feature_index = Math.floor((Math.random()) * lr_feature_list.length);
+var road_key_index = Math.floor((Math.random()) * allowed_keys_road.length);
+var mountain_key_index = Math.floor((Math.random()) * allowed_keys_mountain.length);
 
 for (i = 0; i < lr_stimuli_TS1.length; i++) {
     var ob = lr_stimuli_TS1[i];
     ob.data.feature = lr_feature_list[feature_index];
-    ob.allowed_keys = ['leftarrow','rightarrow'];
+    ob.allowed_keys = allowed_keys_road;
 
     if (ob.data.feature == 'color') //If current feature is color
     {
@@ -228,12 +232,14 @@ for (i = 0; i < lr_stimuli_TS1.length; i++) {
     //If current feature is color then check the second digit; 0,1 is warm --> left, 2,3 is cold --> right.
         if (ob.lr_stimulus.charAt(53) == 0 || ob.lr_stimulus.charAt(53) == 1) //If sceond digit is 0,1 --> warm --> left
         {
-            ob.data.correct_response = 'leftarrow';
+            ob.data.correct_response = allowed_keys_road[road_key_index];
+            console.log(ob.data.correct_response)
         }
 
         else //If sceond digit is 2,3 --> cold --> right
         {
-            ob.data.correct_response = 'rightarrow';
+            ob.data.correct_response = allowed_keys_road[1-road_key_index];
+            console.log(ob.data.correct_response)
         }
 
     }
@@ -244,12 +250,14 @@ for (i = 0; i < lr_stimuli_TS1.length; i++) {
 
         if (ob.lr_stimulus.charAt(54) == 0 || ob.lr_stimulus.charAt(54) == 1) //If third digit is 0,1 --> round --> left
         {
-            ob.data.correct_response = 'leftarrow';
+            ob.data.correct_response = allowed_keys_road[road_key_index];
+            console.log(ob.data.correct_response)
         }
 
         else //If third digit is 2,3 --> edge --> right
         {
-            ob.data.correct_response = 'rightarrow';
+            ob.data.correct_response = allowed_keys_road[1-road_key_index];
+            console.log(ob.data.correct_response)
         }
 
     }
@@ -258,7 +266,7 @@ for (i = 0; i < lr_stimuli_TS1.length; i++) {
 for (i = 0; i < lr_stimuli_TS2.length; i++) {
     var ob = lr_stimuli_TS2[i];
     ob.data.feature = lr_feature_list[1-feature_index];
-    ob.allowed_keys = ['uparrow','downarrow'];
+    ob.allowed_keys = allowed_keys_mountain;
 
     if (ob.data.feature == 'color') //If current feature is color
     {
@@ -266,12 +274,14 @@ for (i = 0; i < lr_stimuli_TS2.length; i++) {
     //If current feature is color then check the second digit; 0,1 is warm --> up, 2,3 is cold --> down.
         if (ob.lr_stimulus.charAt(53) == 0 || ob.lr_stimulus.charAt(53) == 1) //If sceond digit is 0,1 --> warm --> up
         {
-            ob.data.correct_response = 'uparrow';
+            ob.data.correct_response = allowed_keys_mountain[mountain_key_index];
+            console.log(ob.data.correct_response)
         }
 
         else //If sceond digit is 2,3 --> cold --> down
         {
-            ob.data.correct_response = 'downarrow';
+            ob.data.correct_response = allowed_keys_mountain[1-mountain_key_index];
+            console.log(ob.data.correct_response)
         }
 
     }
@@ -283,13 +293,15 @@ for (i = 0; i < lr_stimuli_TS2.length; i++) {
         if (ob.lr_stimulus.charAt(54) == 0 || ob.lr_stimulus.charAt(54) == 1) //If third digit is 0,1 --> round --> up
         {
             //correct_response = up
-            ob.data.correct_response = 'uparrow';
+            ob.data.correct_response = allowed_keys_mountain[mountain_key_index];
+            console.log(ob.data.correct_response)
         }
 
         else //If third digit is 2,3 --> edge --> down
         {
             //correct_response = down
-            ob.data.correct_response = 'downarrow';
+            ob.data.correct_response = allowed_keys_mountain[mountain_key_index];
+            console.log(ob.data.correct_response)
         }
 
     }
