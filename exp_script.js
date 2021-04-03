@@ -171,7 +171,7 @@ var instruction = {
     ],
     show_clickable_nav: true,
 }
-timeline.push(instruction);
+//timeline.push(instruction);
 
 
 /* -----define learning stimuli----- */
@@ -386,7 +386,7 @@ var learning_trial = {
         size: 4, // 4 repetitions of each trial, 128 total trials, order is randomized.
     }
 };
-timeline.push(learning_trial)
+//timeline.push(learning_trial)
 
 
 /* -----Attention Bonus Check----- */
@@ -474,7 +474,6 @@ var multi_choice_Q3 = {
     preamble: 'Now, we will ask you to pick between different options to see how you learned the rules of the game.',
     questions: [
         { prompt: "<p> What determined the correct response to a gem when you were on the mountain? <br> If you do not know for sure, please make your best guess.</p>", name: 'Q3P1', options: Q3P1_options, required: true },
-        //{ prompt: "On a scale of 1-5, how confident are you in your choice?", name: 'Q3P2', options: conf_options, required: true },
     ],
 };
 timeline.push(multi_choice_Q3);
@@ -486,24 +485,36 @@ var multi_choice_Q4 = {
     preamble: 'Now, we will ask you to pick between different options to see how you learned the rules of the game.',
     questions: [
         { prompt: "<p>What determined the correct response to a gem when you were on the road? <br> If you do not know for sure, please make your best guess.</p>", name: 'Q4P1', options: Q3P1_options, required: true },
-        //{ prompt: "On a scale of 1-5, how confident are you in your choice?", name: 'Q4P2', options: conf_options, required: true },
     ],
 };
 timeline.push(multi_choice_Q4);
 timeline.push(confidence);
 
 var feature = lr_feature_list[feature_index];
+
+var option1_road_key = allowed_keys_road[road_key_index];
+var option2_road_key = allowed_keys_road[1-road_key_index];
+
+var option1_mountain_key = allowed_keys_mountain[mountain_key_index];
+var option2_mountain_key = allowed_keys_mountain[1-mountain_key_index];
+
 console.log(feature)
+console.log(option1_road_key)
+console.log(option1_mountain_key)
+
+
 if (feature == 'color') //If current feature is color
-    {   var Q5P1_options = ["If the gem was warm-tones (yellow or orange), press “right”. If the gem was cool-toned (light or dark blue), press “left”.",
-"If the gem was warm-tones (yellow or orange), press “left”. If the gem was cool-toned (light or dark blue), press “right”."];
-        var Q6P1_options =["If the gem was round (circle or oval), press “up”. If the gem had straight edges (square or rounded square), press “down”.",
-        "If the gem was round (circle or oval), press “down”. If the gem had straight edges (square or rounded square), press “up”."]
+    {
+        var Q5P1_options = [<p>If the gem was warm-tones (yellow or orange), press + ${option1_road_key} +. If the gem was cool-toned (light or dark blue), press ${option2_road_key}.</p>,
+            <p>If the gem was warm-tones (yellow or orange), press ${option2_road_key}. If the gem was cool-toned (light or dark blue), press ${option1_road_key}.</p>];
+        var Q6P1_options =[<p>If the gem was round (circle or oval), press ${option1_mountain_key}. If the gem had straight edges (square or rounded square), press ${option2_mountain_key}.</p>,
+            <p>If the gem was round (circle or oval), press ${option2_mountain_key}. If the gem had straight edges (square or rounded square), press ${option1_mountain_key}.</p>]
     }
-else {  var Q5P1_options =["If the gem was round (circle or oval), press “right”. If the gem had straight edges (square or rounded square), press “left”.",
-"If the gem was round (circle or oval), press “left”. If the gem had straight edges (square or rounded square), press “right”."];
-        var Q6P1_options = ["If the gem was warm-tones (yellow or orange), press “up”. If the gem was cool-toned (light or dark blue), press “down”.",
-        "If the gem was warm-tones (yellow or orange), press “down”. If the gem was cool-toned (light or dark blue), press “up”."];
+else {
+    var Q5P1_options =[<p>If the gem was round (circle or oval), press ${option1_road_key}. If the gem had straight edges (square or rounded square), press ${option2_road_key}.</p>,
+        <p>If the gem was round (circle or oval), press ${option2_road_key}. If the gem had straight edges (square or rounded square), press ${option1_road_key}.</p>];
+    var Q6P1_options = [<p>If the gem was warm-tones (yellow or orange), press ${option1_mountain_key}. If the gem was cool-toned (light or dark blue), press ${option2_mountain_key}.</p>,
+        <p>If the gem was warm-tones (yellow or orange), press ${option2_mountain_key}. If the gem was cool-toned (light or dark blue), press ${option1_mountain_key}.</p>];
     };
 
 
@@ -513,7 +524,6 @@ var multi_choice_Q5 = {
     preamble: '',
     questions: [
         { prompt: "<p> What were the rules of the game when you were on the road? <br> If you do not know for sure, please make your best guess.</p>", name: 'Q5P1', options: Q5P1_options, required: true },
-        //{ prompt: "On a scale of 1-5, how confident are you in your choice?", name: 'Q5P2', options: conf_options, required: true },
     ],
 };
 timeline.push(multi_choice_Q5);
@@ -525,7 +535,6 @@ var multi_choice_Q6 = {
     preamble: '',
     questions: [
         { prompt: "<p>What were the rules of the game when you were on the mountain? <br> If you do not know for sure, please make your best guess.</p>", name: 'Q6P1', options: Q6P1_options, required: true },
-        //{ prompt: "On a scale of 1-5, how confident are you in your choice?", name: 'Q6P2', options: conf_options, required: true },
     ],
 };
 timeline.push(multi_choice_Q6);
