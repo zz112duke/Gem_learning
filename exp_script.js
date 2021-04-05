@@ -217,7 +217,7 @@ var lr_stimuli_TS2 = [//if based on color; warm left cold right; if based on sha
 var lr_feature_list = ['color', 'shape'];
 var allowed_keys_road = ['leftarrow','rightarrow'];
 var allowed_keys_mountain = ['uparrow','downarrow'];
-var feature_index = 1;
+var feature_index = 0;
 var road_key_index = Math.floor((Math.random()) * allowed_keys_road.length);
 var mountain_key_index = Math.floor((Math.random()) * allowed_keys_mountain.length);
 
