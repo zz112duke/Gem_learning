@@ -116,7 +116,7 @@ var instruction = {
         /* -----instr_3----- */
         '<p style="color:black;font-size: 26px">\n' +
         '    Notice that the gemstones come in different cuts: <br>\n' +
-        '    straight-edged (square and rounded square) and round (circle and oval). <br>\n' +
+        '    straight-edged (diamond-shaped and cone-shaped) and round (circle and oval). <br>\n' +
         '    <br>\n' +
         '    They also come in different colors: <br>\n' +
         '    warm-toned colors (yellow and orange) and cool-toned colors (light blue and dark blue). <br>\n' +
@@ -217,7 +217,7 @@ var lr_stimuli_TS2 = [//if based on color; warm left cold right; if based on sha
 var lr_feature_list = ['color', 'shape'];
 var allowed_keys_road = ['leftarrow','rightarrow'];
 var allowed_keys_mountain = ['uparrow','downarrow'];
-var feature_index = 0;
+var feature_index = 1;
 var road_key_index = Math.floor((Math.random()) * allowed_keys_road.length);
 var mountain_key_index = Math.floor((Math.random()) * allowed_keys_mountain.length);
 
